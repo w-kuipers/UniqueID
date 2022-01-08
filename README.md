@@ -10,10 +10,6 @@ This package helps developers by giving them some "quality of life" features. St
 
 ## Installation
 
-### Requirements
-
-Use this section to list unusual dependencies or dependencies that must be installed manually.
-
 ### Install using PIP
 
     pip install simpleUID
@@ -48,7 +44,7 @@ If you found a problem with the software, please [create an issue](https://githu
 
 ## Maintainer
 
-This project is maintained by [Filmage](https://www.filmage.nl/).
+This project is maintained by [Wibo Kuipers](https://github.com/w-kuipers).
 
 ## Contributing
 
