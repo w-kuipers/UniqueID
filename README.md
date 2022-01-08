@@ -14,9 +14,7 @@ This package helps developers by giving them some "quality of life" features. St
 
 Use this section to list unusual dependencies or dependencies that must be installed manually.
 
-### Install using X
-
-Install with pip
+### Install using PIP
 
     pip install uniqueID
 
@@ -25,19 +23,24 @@ Note the `pip` refers to the Python 3 package manager. In environment where Pyth
 ## Usage
 
 Import uniqueID:
+
 `import uniqueID`
 
 Create a random string:
+
 `uniqueID.string()`
 
 You can specify the string length and a prefix:
+
 `uniqueID.string(length=20, prefix="start"`
 
 All functions will take the same arguments, existing functions are:
 | Function        | Args(with default)           | Returns  |
 | ------------- |:-------------:| -----:|
-| string      | length=6, prefix  | $1600 |
-| int     | length=6, prefix      |   $12 |
+| string      | length=6, prefix  | 6 character long string EXCL. prefix |
+| integer     | length=6, prefix      |   6 character long integer EXCL. prefix |
+
+Keep in mind that the prefix for the integer function should be of type int.
 ## Support
 
 If you found a problem with the software, please [create an issue](https://github.com/w-kuipers/UniqueID/issues) on GitHub.
@@ -53,4 +56,4 @@ Your contributions are highly appreciated. Please [create a pull request](https:
 
 ## License
 
-[MIT LICENSE](https://github.com/w-kuipers/UniqueID/master/LICENSE)
+[MIT LICENSE](https://github.com/w-kuipers/UniqueID/blob/master/LICENSE)
