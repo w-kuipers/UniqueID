@@ -32,13 +32,13 @@ Create a random string:
 
 You can specify the string length and a prefix:
 
-    uniqueID.string(length=20, prefix="start"
+    uniqueID.string(length=20, prefix='start')
 
 All functions will take the same arguments, existing functions are:
 | Function        | Args(with default)           | Returns  |
 | ------------- |:-------------:| -----:|
-| string      | length=6, prefix  | 6 character long string EXCL. prefix |
-| integer     | length=6, prefix      |   6 character long integer EXCL. prefix |
+| string      | length=6, prefix  | 6 character long string excl. prefix |
+| integer     | length=6, prefix      |   6 character long integer excl. prefix |
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 ## Support
