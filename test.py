@@ -1,3 +1,3 @@
-from src.uniqueID import uniqueID
+from src.simpleUID import simpleUID
 
-print(type(uniqueID.integer(prefix='21')))
+print(simpleUID.integer(prefix=21))
