@@ -10,10 +10,6 @@ This package helps developers by giving them some "quality of life" features. St
 
 ## Installation
 
-### Requirements
-
-Use this section to list unusual dependencies or dependencies that must be installed manually.
-
 ### Install using PIP
 
     pip install simpleUID
