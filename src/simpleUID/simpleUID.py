@@ -32,19 +32,19 @@ def string(length=6, prefix=None):
 
 
 #### Check database cursor....
-def database(cursor, **kwargs):
+def database(cursor, *args, **kwargs):
     
     print(kwargs)
 
     method = 'string' if not 'method' in kwargs else kwargs['method']
-    del kwargs['method'] #### Kwargs need to be passed to generation functions
+    del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
 
     idExists = True
 
     count = 1
     while idExists:
 
-        generatedID = string(**kwargs) if method == 'string' else integer(**kwargs) if method == 'integer' else None
+        generatedID = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
 
         cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generatedID))
 

@@ -39,6 +39,7 @@ All functions will take the same arguments, existing functions are:
 | ------------- |:-------------:| -----:|
 | string      | length=6, prefix  | 6 character long string excl. prefix |
 | integer     | length=6, prefix      |   6 character long integer excl. prefix |
+| database     | cursor, method="string", length=6, prefix      |   6 character long string excl. prefix |
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 ## Support
