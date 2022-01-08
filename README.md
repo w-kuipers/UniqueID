@@ -37,8 +37,9 @@ You can specify the string length and a prefix:
 All functions will take the same arguments, existing functions are:
 | Function        | Args(with default)           | Returns  |
 | ------------- |:-------------:| -----:|
-| string      | length=6, prefix  | 6 character long string excl. prefix |
-| integer     | length=6, prefix      |   6 character long integer excl. prefix |
+| string      | length=6, prefix  | 6 character long string |
+| integer     | length=6, prefix      |   6 character long integer |
+| password     | length=8, prefix      |   10 character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits |
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 ## Support
