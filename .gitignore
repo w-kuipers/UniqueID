@@ -1,5 +1,9 @@
-# Virtual environment
+# Virtual environment/dist
 /venv
+/dist
+
+*.egg-info
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
