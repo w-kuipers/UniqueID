@@ -13,6 +13,7 @@ def integer(length=6, prefix=None):
     
     randomInteger = int(''.join(random.choice(lettersAndDigits) for i in range(length)))
 
+    #### Add prefix
     if not prefix == None:
         randomInteger = prefix + randomInteger
 
@@ -28,17 +29,19 @@ def string(length=6, prefix=None):
     return str(randomString)
 
 
-### TODO create function to accept a database cursor
-#### Function to create a unique ID for in the database....
-# def uniqueID(table, column, stringLength=6, prefix=None):
-#     idExists = True
-#     while idExists:
-#         randomID = self.randomStringDigits(stringLength, prefix=prefix)
-
-#         with connections['FMM'].cursor() as cursor:
-#             cursor.execute('SELECT * FROM {} WHERE {} = "{}"'.format(table, column, randomID))
-
-#             if not len(cursor.fetchall()):
-#                 idExists = False
+#### Check database cursor....
+def database(cursor, stringLength=6, prefix=None):
     
-#     return randomID
+    for key in cursor:
+        print(key)
+    # idExists = True
+    # while idExists:
+    #     randomID = self.randomStringDigits(stringLength, prefix=prefix)
+
+    #     with connections['FMM'].cursor() as cursor:
+    #         cursor.execute('SELECT * FROM {} WHERE {} = "{}"'.format(table, column, randomID))
+
+    #         if not len(cursor.fetchall()):
+    #             idExists = False
+    
+    return cursor
