@@ -1,6 +1,7 @@
 # Virtual environment/dist
 /venv
 /dist
+/build
 
 *.egg-info
 
