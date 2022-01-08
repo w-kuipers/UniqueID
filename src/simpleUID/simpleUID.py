@@ -7,6 +7,8 @@ lettersAndDigits = _string.digits
 #### Return random integer value
 def integer(length=6, prefix=None):
 
+    print(prefix)
+
     #### Prefix should be of type int
     if not isinstance(prefix, int):
         raise Exception('Prefix should be of type int')
@@ -15,8 +17,8 @@ def integer(length=6, prefix=None):
 
     #### Add prefix
     if not prefix == None:
-        randomInteger = prefix + randomInteger
-
+        randomInteger = int(str(prefix) + str(randomInteger))
+        
     return randomInteger
 
 #### Return random string value
@@ -30,18 +32,25 @@ def string(length=6, prefix=None):
 
 
 #### Check database cursor....
-def database(cursor, stringLength=6, prefix=None):
+def database(cursor, **kwargs):
     
-    for key in cursor:
-        print(key)
-    # idExists = True
-    # while idExists:
-    #     randomID = self.randomStringDigits(stringLength, prefix=prefix)
+    print(kwargs)
 
-    #     with connections['FMM'].cursor() as cursor:
-    #         cursor.execute('SELECT * FROM {} WHERE {} = "{}"'.format(table, column, randomID))
+    method = 'string' if not 'method' in kwargs else kwargs['method']
+    del kwargs['method'] #### Kwargs need to be passed to generation functions
 
-    #         if not len(cursor.fetchall()):
-    #             idExists = False
-    
-    return cursor
+    idExists = True
+
+    count = 1
+    while idExists:
+
+        generatedID = string(**kwargs) if method == 'string' else integer(**kwargs) if method == 'integer' else None
+
+        cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generatedID))
+
+        if not len(cursor['cursor'].fetchall()):
+            idExists = False
+
+        count += 1
+
+    return generatedID
