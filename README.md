@@ -6,7 +6,7 @@
 
 A simple and intuitive Python package for generating unique IDs.
 
-This package helps developers by giving them some "quality of life" features. Stop rewriting the same piece of code in every project.
+This package helps developers by bringing them some "quality of life" features. Stop rewriting the same piece of code in every project.
 
 ## Installation
 
