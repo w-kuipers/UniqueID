@@ -24,15 +24,15 @@ Note the `pip` refers to the Python 3 package manager. In environment where Pyth
 
 Import uniqueID:
 
-`import uniqueID`
+    import uniqueID
 
 Create a random string:
 
-`uniqueID.string()`
+    uniqueID.string()
 
 You can specify the string length and a prefix:
 
-`uniqueID.string(length=20, prefix="start"`
+    uniqueID.string(length=20, prefix="start"
 
 All functions will take the same arguments, existing functions are:
 | Function        | Args(with default)           | Returns  |
@@ -40,7 +40,7 @@ All functions will take the same arguments, existing functions are:
 | string      | length=6, prefix  | 6 character long string EXCL. prefix |
 | integer     | length=6, prefix      |   6 character long integer EXCL. prefix |
 
-Keep in mind that the prefix for the integer function should be of type int.
+Keep in mind that the prefix for the `integer` function should be of type `int`.
 ## Support
 
 If you found a problem with the software, please [create an issue](https://github.com/w-kuipers/UniqueID/issues) on GitHub.
