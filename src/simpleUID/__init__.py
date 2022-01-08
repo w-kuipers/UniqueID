@@ -1,1 +1,1 @@
-from .simpleUID import string, integer, database
+from .simpleUID import string, integer, password, database

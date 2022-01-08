@@ -1,8 +1,9 @@
 import string as _string
 import random
+import secrets
 
 #### 0123456789
-lettersAndDigits = _string.digits
+digits = _string.digits
 
 #### Return random integer value
 def integer(length=6, prefix=None):
@@ -13,7 +14,7 @@ def integer(length=6, prefix=None):
     if not isinstance(prefix, int):
         raise Exception('Prefix should be of type int')
     
-    randomInteger = int(''.join(random.choice(lettersAndDigits) for i in range(length)))
+    randomInteger = int(''.join(random.choice(digits) for i in range(length)))
 
     #### Add prefix
     if not prefix == None:
@@ -23,12 +24,26 @@ def integer(length=6, prefix=None):
 
 #### Return random string value
 def string(length=6, prefix=None):
-    randomString = int(''.join(random.choice(lettersAndDigits) for i in range(length)))
+
+    alphabet = _string.ascii_letters + _string.digits
+    generated = ''.join(secrets.choice(alphabet) for i in range(length))
 
     if not prefix == None:
-        randomString = prefix + str(randomString)
+        generated = str(prefix) + generated
 
-    return str(randomString)
+    return str(generated)
+
+def password(length=10, prefix=None):
+
+    alphabet = _string.ascii_letters + _string.digits
+    while True:
+        password = ''.join(secrets.choice(alphabet) for i in range(length))
+        if (any(c.islower() for c in password)
+                and any(c.isupper() for c in password)
+                and sum(c.isdigit() for c in password) >= 3):
+            break
+
+    return password
 
 
 #### Check database cursor....
