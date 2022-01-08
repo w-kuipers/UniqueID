@@ -1,7 +1,7 @@
 # simpleUID (unique ID) for Python
 
-[![GitHub releases](https://img.shields.io/github/release/greenbone/PROJECT.svg)](https://github.com/w-kuipers/simpleUID/releases)
-[![PyPI release](https://img.shields.io/pypi/v/PROJECT.svg)](https://pypi.org/project/simpleUID/)
+[![GitHub releases](https://img.shields.io/github/release/w-kuipers/simpleUID.svg)](https://github.com/w-kuipers/simpleUID/releases)
+[![PyPI release](https://img.shields.io/pypi/v/simpleUID.svg)](https://pypi.org/project/simpleUID/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A simple and intuitive Python package for generating unique IDs.
