@@ -8,15 +8,18 @@ digits = _string.digits
 #### Return random integer value
 def integer(length=6, prefix=None):
 
+    print(prefix)
+
     #### Prefix should be of type int
     if not isinstance(prefix, int):
         raise Exception('Prefix should be of type int')
     
     randomInteger = int(''.join(random.choice(digits) for i in range(length)))
 
+    #### Add prefix
     if not prefix == None:
-        randomInteger = prefix + randomInteger
-
+        randomInteger = int(str(prefix) + str(randomInteger))
+        
     return randomInteger
 
 #### Return random string value
@@ -43,17 +46,26 @@ def password(length=10, prefix=None):
     return password
 
 
-### TODO create function to accept a database cursor
-#### Function to create a unique ID for in the database....
-# def uniqueID(table, column, stringLength=6, prefix=None):
-#     idExists = True
-#     while idExists:
-#         randomID = self.randomStringDigits(stringLength, prefix=prefix)
-
-#         with connections['FMM'].cursor() as cursor:
-#             cursor.execute('SELECT * FROM {} WHERE {} = "{}"'.format(table, column, randomID))
-
-#             if not len(cursor.fetchall()):
-#                 idExists = False
+#### Check database cursor....
+def database(cursor, *args, **kwargs):
     
-#     return randomID
+    print(kwargs)
+
+    method = 'string' if not 'method' in kwargs else kwargs['method']
+    del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
+
+    idExists = True
+
+    count = 1
+    while idExists:
+
+        generatedID = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
+
+        cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generatedID))
+
+        if not len(cursor['cursor'].fetchall()):
+            idExists = False
+
+        count += 1
+
+    return generatedID
