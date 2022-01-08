@@ -11,9 +11,9 @@ setuptools.setup(
     description="A simple and intuitive Python package for generating unique IDs.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/w-kuipers/UniqueID",
     project_urls={
-        "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
+        "Bug Tracker": "https://github.com/w-kuipers/UniqueID/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",

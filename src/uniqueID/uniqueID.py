@@ -28,7 +28,7 @@ def string(length=6, prefix=None):
     return str(randomString)
 
 
-
+### TODO create function to accept a database cursor
 #### Function to create a unique ID for in the database....
 # def uniqueID(table, column, stringLength=6, prefix=None):
 #     idExists = True
