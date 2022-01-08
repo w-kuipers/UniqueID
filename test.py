@@ -1,3 +1,9 @@
 import src.simpleUID as simpleUID
 
-print(simpleUID.integer(prefix=21))
+# print(simpleUID.database(cursor={
+#     'cursor': 'iets',
+#     'table': 'FA_projectbase',
+#     'column': 'project_id'
+# }))
+
+print(simpleUID.database())
