@@ -1,1 +1,1 @@
-from .simpleUID import string, integer
+from .simpleUID import string, integer, password
