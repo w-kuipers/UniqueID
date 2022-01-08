@@ -10,10 +10,6 @@ This package helps developers by giving them some "quality of life" features. St
 
 ## Installation
 
-### Requirements
-
-Use this section to list unusual dependencies or dependencies that must be installed manually.
-
 ### Install using PIP
 
     pip install simpleUID
@@ -37,8 +33,9 @@ You can specify the string length and a prefix:
 All functions will take the same arguments, existing functions are:
 | Function        | Args(with default)           | Returns  |
 | ------------- |:-------------:| -----:|
-| string      | length=6, prefix  | 6 character long string excl. prefix |
-| integer     | length=6, prefix      |   6 character long integer excl. prefix |
+| string      | length=6, prefix  | 6 character long string |
+| integer     | length=6, prefix      |   6 character long integer |
+| password     | length=8, prefix      |   10 character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits |
 | database     | cursor, method="string", length=6, prefix      |   6 character long string excl. prefix |
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
@@ -48,7 +45,7 @@ If you found a problem with the software, please [create an issue](https://githu
 
 ## Maintainer
 
-This project is maintained by [Filmage](https://www.filmage.nl/).
+This project is maintained by [Wibo Kuipers](https://github.com/w-kuipers).
 
 ## Contributing
 
