@@ -45,6 +45,15 @@ def password(length=10, prefix=None):
 
     return password
 
+#### Wrapper for secrets by TODO change to switchcase when apache2 supports py3.10
+def secret(length=32, type='bytes'):
+    if type == 'bytes':
+        return secrets.token_bytes(length)
+    elif type == 'hex':
+        return secrets.token_hex(length)
+    else:
+        raise Exception('Unable to generate a secret key of type {}'.format(type))
+
 
 #### Check database cursor....
 def database(cursor, *args, **kwargs):
