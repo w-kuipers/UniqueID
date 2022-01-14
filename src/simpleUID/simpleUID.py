@@ -1,3 +1,4 @@
+from ast import arg
 import string as _string
 import random
 import secrets
@@ -46,11 +47,16 @@ def password(length=10, prefix=None):
     return password
 
 #### Wrapper for secrets by TODO change to switchcase when apache2 supports py3.10
-def secret(length=32, type='bytes'):
+def secret(*args, length=32, type='bytes'):
     if type == 'bytes':
         return secrets.token_bytes(length)
     elif type == 'hex':
         return secrets.token_hex(length)
+    elif type == 'urlsafe':
+        generated = secrets.token_urlsafe(length)
+        if 'encoded' in args:
+            generated  = generated.encode()
+        return generated
     else:
         raise Exception('Unable to generate a secret key of type {}'.format(type))
 
