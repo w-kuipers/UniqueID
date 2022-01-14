@@ -54,6 +54,8 @@ def secret(*args, length=32, type='bytes'):
         return secrets.token_hex(length)
     elif type == 'urlsafe':
         generated = secrets.token_urlsafe(length)
+        if 'padding' in args:
+            generated  += '='
         if 'encoded' in args:
             generated  = generated.encode()
         return generated
