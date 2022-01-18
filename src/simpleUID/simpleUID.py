@@ -8,19 +8,17 @@ digits = _string.digits
 #### Return random integer value
 def integer(length=6, prefix=None):
 
-    print(prefix)
-
     #### Prefix should be of type int
     if not isinstance(prefix, int):
         raise Exception('Prefix should be of type int')
     
-    randomInteger = int(''.join(random.choice(digits) for i in range(length)))
+    random_integer = int(''.join(random.choice(digits) for i in range(length)))
 
     #### Add prefix
     if not prefix == None:
-        randomInteger = int(str(prefix) + str(randomInteger))
+        random_integer = int(str(prefix) + str(random_integer))
         
-    return randomInteger
+    return random_integer
 
 #### Return random string value
 def string(length=6, prefix=None):
@@ -49,23 +47,21 @@ def password(length=10, prefix=None):
 #### Check database cursor....
 def database(cursor, *args, **kwargs):
     
-    print(kwargs)
-
     method = 'string' if not 'method' in kwargs else kwargs['method']
     del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
 
-    idExists = True
+    id_exists = True
 
     count = 1
-    while idExists:
+    while id_exists:
 
-        generatedID = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
+        generated_id = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
 
-        cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generatedID))
+        cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generated_id))
 
         if not len(cursor['cursor'].fetchall()):
-            idExists = False
+            id_exists = False
 
         count += 1
 
-    return generatedID
+    return generated_id
