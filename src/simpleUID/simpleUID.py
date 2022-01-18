@@ -1,5 +1,5 @@
 from ast import arg
-import string as _string
+import string as _string ## Function string is defined in code
 import random
 import secrets
 
@@ -7,34 +7,38 @@ import secrets
 digits = _string.digits
 
 #### Return random integer value
-def integer(length=6, prefix=None):
+def integer(length:int=6, prefix:int=None):
 
     #### Prefix should be of type int
     if not isinstance(prefix, int):
-        raise Exception('Prefix should be of type int')
+        raise TypeError('Prefix should be of type int')
     
-    random_integer = int(''.join(random.choice(digits) for i in range(length)))
+    random_integer = int(''.join(random.choice(digits) for i in range(length))) ## Create random integer using built in random module
 
     #### Add prefix
     if not prefix == None:
-        random_integer = int(str(prefix) + str(random_integer))
+        random_integer = int(str(prefix) + str(random_integer)) ## Workaround with int and str functions TODO clean up
         
     return random_integer
 
 #### Return random string value
-def string(length=6, prefix=None):
+def string(length:int=6, prefix:str=None):
 
-    alphabet = _string.ascii_letters + _string.digits
+    #### Prefix should be of type str
+    if not isinstance(prefix, str):
+        raise TypeError('Prefix should be of type str')
+
+    alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     generated = ''.join(secrets.choice(alphabet) for i in range(length))
 
     if not prefix == None:
-        generated = str(prefix) + generated
+        generated = prefix + generated
 
     return str(generated)
 
-def password(length=10, prefix=None):
+def password(length:int=10):
 
-    alphabet = _string.ascii_letters + _string.digits
+    alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     while True:
         password = ''.join(secrets.choice(alphabet) for i in range(length))
         if (any(c.islower() for c in password)
@@ -45,7 +49,7 @@ def password(length=10, prefix=None):
     return password
 
 #### Wrapper for secrets by TODO change to switchcase when apache2 supports py3.10
-def secret(*args, length=32, type='bytes'):
+def secret(*args, length:int=32, type:str='bytes'):
     if type == 'bytes':
         return secrets.token_bytes(length)
     elif type == 'hex':
