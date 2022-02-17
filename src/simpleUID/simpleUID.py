@@ -60,7 +60,7 @@ def password(length:int=10):
 
     return password
 
-#### Wrapper for secrets by TODO change to switchcase when apache2 supports py3.10
+#### Wrapper for secrets
 def secret(*args, length:int=32, type:str='bytes'):
     if type == 'bytes':
         return secrets.token_bytes(length)
