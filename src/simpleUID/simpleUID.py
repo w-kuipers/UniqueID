@@ -11,9 +11,24 @@ def integer(length:int=6, prefix:int=None):
 
     #### Prefix should be of type int
     if not isinstance(prefix, int):
-        raise TypeError('Prefix should be of type int')
+        if not prefix == None:
+            raise TypeError('Prefix should be of type int')
     
-    random_integer = int(''.join(random.choice(digits) for i in range(length))) ## Create random integer using built in random module
+        random_integer = ""
+    
+    #### Create random integer
+    c = length
+    while not c == 0:
+        cur_random_int = random.choice(digits)
+        if not int(cur_random_int) == 0: #### If an integer starts with 0 the 0 will be ignored
+            random_integer += ''.join(cur_random_int)
+            c -= 1
+
+    random_integer = int(random_integer)
+    
+    #### If length is less than the required length
+    if len(str(random_integer)) < length:
+        print("is_less")
 
     #### Add prefix
     if not prefix == None:
@@ -26,7 +41,8 @@ def string(length:int=6, prefix:str=None):
 
     #### Prefix should be of type str
     if not isinstance(prefix, str):
-        raise TypeError('Prefix should be of type str')
+        if not prefix == None:
+            raise TypeError('Prefix should be of type str')
 
     alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     generated = ''.join(secrets.choice(alphabet) for i in range(length))
