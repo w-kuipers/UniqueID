@@ -25,10 +25,6 @@ def integer(length:int=6, prefix:int=None):
             c -= 1
 
     random_integer = int(random_integer)
-    
-    #### If length is less than the required length
-    if len(str(random_integer)) < length:
-        print("is_less")
 
     #### Add prefix
     if not prefix == None:
