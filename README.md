@@ -33,9 +33,10 @@ You can specify the string length and a prefix:
 All functions will will take the arguments `length` and `prefix`, existing functions are:
 | Function        | Args(with default)           | Returns  |
 | ------------- |:-------------:| -----:|
-| string      | length=6, ignore_max_length=False, prefix  | 6 character long string |
-| integer     | length=6, ignore_max_length=False, prefix      |   6 character long integer |
-| password     | length=8, ignore_max_length=False, prefix      |   10 character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits |
+| string      | length=6, ignore_max_length=False, prefix=6  | 6 character long string |
+| integer     | length=6, ignore_max_length=False, prefix=6      |   6 character long integer |
+| password     | length=8, ignore_max_length=False, prefix=10     |   10 character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits |
+| secret     | type="bytes", ignore_max_length=False, length=32, prefix      |   32 bytes long excl. prefix |
 | database     | cursor:dictionairy, method="string", ignore_max_length=False, length=6, prefix      |   6 character long string excl. prefix |
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
