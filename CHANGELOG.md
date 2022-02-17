@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Removed unnecessary imports.
 
+### Documentation
+- Added information for "secret" function.
+
 ## [v0.1.4] - 2022-02-17
 ### Fixed
 - Issue where "integer" function will not be accurate when the randomly generated integer started with 0.
