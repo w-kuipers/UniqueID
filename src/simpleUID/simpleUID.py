@@ -10,7 +10,7 @@ digits = _string.digits
 def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
 
     #### Check if specified length is allowed
-    length_check(length, ignore_max_length)
+    length_check(length, ignore_max_length) #### Will fail if returns True
 
     #### Prefix should be of type int
     if not isinstance(prefix, int):
@@ -36,7 +36,10 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
     return random_integer
 
 #### Return random string value
-def string(length:int=6, prefix:str=None):
+def string(length:int=6, prefix:str=None, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
 
     #### Prefix should be of type str
     if not isinstance(prefix, str):
@@ -51,7 +54,10 @@ def string(length:int=6, prefix:str=None):
 
     return str(generated)
 
-def password(length:int=10):
+def password(length:int=10, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
 
     alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     while True:
@@ -64,7 +70,11 @@ def password(length:int=10):
     return password
 
 #### Wrapper for secrets
-def secret(*args, length:int=32, type:str='bytes'):
+def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
+
     if type == 'bytes':
         return secrets.token_bytes(length)
     elif type == 'hex':
