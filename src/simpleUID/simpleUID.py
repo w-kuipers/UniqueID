@@ -1,4 +1,4 @@
-from ast import arg
+from .include import length_check
 import string as _string ## Function string is defined in code
 import random
 import secrets
@@ -7,7 +7,10 @@ import secrets
 digits = _string.digits
 
 #### Return random integer value
-def integer(length:int=6, prefix:int=None):
+def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length)
 
     #### Prefix should be of type int
     if not isinstance(prefix, int):
