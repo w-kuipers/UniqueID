@@ -1,4 +1,4 @@
-from ast import arg
+from .include import length_check
 import string as _string ## Function string is defined in code
 import random
 import secrets
@@ -7,7 +7,10 @@ import secrets
 digits = _string.digits
 
 #### Return random integer value
-def integer(length:int=6, prefix:int=None):
+def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
 
     #### Prefix should be of type int
     if not isinstance(prefix, int):
@@ -33,7 +36,10 @@ def integer(length:int=6, prefix:int=None):
     return random_integer
 
 #### Return random string value
-def string(length:int=6, prefix:str=None):
+def string(length:int=6, prefix:str=None, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
 
     #### Prefix should be of type str
     if not isinstance(prefix, str):
@@ -48,7 +54,10 @@ def string(length:int=6, prefix:str=None):
 
     return str(generated)
 
-def password(length:int=10):
+def password(length:int=10, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
 
     alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     while True:
@@ -61,7 +70,11 @@ def password(length:int=10):
     return password
 
 #### Wrapper for secrets
-def secret(*args, length:int=32, type:str='bytes'):
+def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) #### Will fail if returns True
+
     if type == 'bytes':
         return secrets.token_bytes(length)
     elif type == 'hex':
@@ -80,8 +93,11 @@ def secret(*args, length:int=32, type:str='bytes'):
 #### Check database cursor....
 def database(cursor, *args, **kwargs):
     
-    method = 'string' if not 'method' in kwargs else kwargs['method']
-    del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
+    if not "method" in kwargs:
+        method = "string"
+    else:
+        method = kwargs['method']
+        del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
 
     id_exists = True
 
