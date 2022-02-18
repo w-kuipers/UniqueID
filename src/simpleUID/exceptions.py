@@ -8,10 +8,10 @@ class length_value_too_long(Exception):
 
         #### Create error message
         if not length == None:
-            self.message = 'Randomly generated ID is longer than the maximum of {}.'.format(length)
+            self.message = 'Length is set to a value larger than the maximun allowed length of {}.'.format(length)
         else:
-            self.message = 'Randomly generated ID is longer than the maximum allowed length.'
+            self.message = 'Length is set to a value larger than the maximun allowed length.'
 
-        self.message += " This can be ignored but this is not recommended."
+        self.message += ' set "ignore_max_length" to "True" to ignore.'
         
         super().__init__(Fore.RED + self.message)
