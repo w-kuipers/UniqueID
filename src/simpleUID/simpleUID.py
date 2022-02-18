@@ -93,8 +93,11 @@ def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False)
 #### Check database cursor....
 def database(cursor, *args, **kwargs):
     
-    method = 'string' if not 'method' in kwargs else kwargs['method']
-    del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
+    if not "method" in kwargs:
+        method = "string"
+    else:
+        method = kwargs['method']
+        del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
 
     id_exists = True
 
