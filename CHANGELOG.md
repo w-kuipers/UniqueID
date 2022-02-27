@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.5]
 ### Fixed
 - Issue where "database" function would fail if argument "method" was undefined.
+- Issue where "integer" function failed because a variable was defined out of scope.
 
 ### Added
 - Added exception that will raise when specified length is higher than 100000 if "ignore_max_length" argument is set to False.
