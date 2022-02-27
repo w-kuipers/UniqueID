@@ -10,44 +10,48 @@ digits = _string.digits
 def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
 
     #### Check if specified length is allowed
-    length_check(length, ignore_max_length) #### Will fail if returns True
+    length_check(length, ignore_max_length) ## Will fail if returns True
 
     #### Prefix should be of type int
     if not isinstance(prefix, int):
         if not prefix == None:
             raise TypeError('Prefix should be of type int')
     
-        random_integer = ""
+        generated = ""
     
     #### Create random integer
     c = length
     while not c == 0:
         cur_random_int = random.choice(digits)
-        if not int(cur_random_int) == 0: #### If an integer starts with 0 the 0 will be ignored
-            random_integer += ''.join(cur_random_int)
+        if not int(cur_random_int) == 0: ## If an integer starts with 0 the 0 will be ignored
+            generated += ''.join(cur_random_int)
             c -= 1
 
-    random_integer = int(random_integer)
+    generated = int(generated)
 
     #### Add prefix
     if not prefix == None:
-        random_integer = int(str(prefix) + str(random_integer)) ## Workaround with int and str functions TODO clean up
+        generated = int(str(prefix) + str(generated)) ## Workaround with int and str functions TODO clean up
         
-    return random_integer
+    return generated
 
 #### Return random string value
-def string(length:int=6, prefix:str=None, ignore_max_length:bool=False):
+def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="string"):
 
     #### Check if specified length is allowed
-    length_check(length, ignore_max_length) #### Will fail if returns True
+    length_check(length, ignore_max_length) ## Will fail if returns True
 
     #### Prefix should be of type str
     if not isinstance(prefix, str):
         if not prefix == None:
             raise TypeError('Prefix should be of type str')
 
-    alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-    generated = ''.join(secrets.choice(alphabet) for i in range(length))
+    #### Check if 'type' is 'integer'
+    if type == "integer":
+        generated = str(integer(length=length)) ## Why write duplicate code?
+    else:
+        alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+        generated = ''.join(secrets.choice(alphabet) for i in range(length))
 
     if not prefix == None:
         generated = prefix + generated
@@ -57,7 +61,7 @@ def string(length:int=6, prefix:str=None, ignore_max_length:bool=False):
 def password(length:int=10, ignore_max_length:bool=False):
 
     #### Check if specified length is allowed
-    length_check(length, ignore_max_length) #### Will fail if returns True
+    length_check(length, ignore_max_length) ## Will fail if returns True
 
     alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
     while True:
@@ -73,7 +77,7 @@ def password(length:int=10, ignore_max_length:bool=False):
 def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False):
 
     #### Check if specified length is allowed
-    length_check(length, ignore_max_length) #### Will fail if returns True
+    length_check(length, ignore_max_length) ## Will fail if returns True
 
     if type == 'bytes':
         return secrets.token_bytes(length)
@@ -90,18 +94,17 @@ def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False)
         raise Exception('Unable to generate a secret key of type {}'.format(type))
 
 
-#### Check database cursor....
+#### Check database cursor
 def database(cursor, *args, **kwargs):
     
     if not "method" in kwargs:
         method = "string"
     else:
         method = kwargs['method']
-        del kwargs['method'] #### Kwargs need to be passed to generation functions, method is useless here
+        del kwargs['method'] ## Kwargs need to be passed to generation functions, method is useless here
 
+    #### Generate new until 'id_exists' becomes False
     id_exists = True
-
-    count = 1
     while id_exists:
 
         generated_id = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
@@ -110,7 +113,5 @@ def database(cursor, *args, **kwargs):
 
         if not len(cursor['cursor'].fetchall()):
             id_exists = False
-
-        count += 1
 
     return generated_id

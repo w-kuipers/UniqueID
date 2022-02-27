@@ -4,15 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.5]
 ### Fixed
 - Issue where "database" function would fail if argument "method" was undefined.
 
 ### Added
 - Added exception that will raise when specified length is higher than 100000 if "ignore_max_length" argument is set to False.
+- Added "type" argument to "string" function. This adds the option to create a string of numbers.
 
 ### Removed
 - Removed unnecessary imports.
+- Removed unnecessary code.
 
 ### Documentation
 - Added information for "secret" function.
@@ -25,5 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - Added information for "database" function.
 
+[0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
 [0.0.1]: https://github.com/w-kuipers/simpleUID/releases/tag/v0.0.1
