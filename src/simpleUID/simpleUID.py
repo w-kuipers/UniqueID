@@ -17,7 +17,7 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
         if not prefix == None:
             raise TypeError('Prefix should be of type int')
     
-        generated = ""
+    generated = ""
     
     #### Create random integer
     c = length
