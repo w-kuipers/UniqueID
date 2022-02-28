@@ -37,7 +37,7 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
     return generated
 
 #### Return random string value
-def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="letters", 
+def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="all", 
             uppercase_only=False, lowercase_only=False):
 
     #### ! depricated, will be removed in v1.0.0
@@ -65,7 +65,7 @@ def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str
         #### Check for upperscase_only or lowercase_only
         alphabet = _string.ascii_uppercase if uppercase_only else _string.ascii_lowercase if lowercase_only else _string.ascii_letters
 
-        choices = alphabet + _string.digits if not type == "letters" else alphabet
+        choices = alphabet + _string.digits if type == "all" else alphabet if type == "letter" else _string.digits
         generated = ''.join(secrets.choice(choices) for i in range(length))
 
     if not prefix == None:

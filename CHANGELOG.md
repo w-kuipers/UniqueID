@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Arguments "lowercase_only" and "uppercase_only" to the "string" function.
+- "string" function argument "type" will now take "all". It will then return a string containing both numbers and letters.
 
 ### Changed
 - "string" function argument "type" will take "numbers" instead of "integer". This is deprecated in this version and will be removed in version 1.0.0.
