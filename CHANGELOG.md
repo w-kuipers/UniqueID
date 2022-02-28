@@ -9,7 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Arguments "lowercase_only" and "uppercase_only" to the "string" function.
 
 ### Changed
-- "string" function argument "type" will take "numbers" instead of "integer". This is deprecated in this version and will be removed in version 1.0.0
+- "string" function argument "type" will take "numbers" instead of "integer". This is deprecated in this version and will be removed in version 1.0.0.
+
+### Removed
+- Removed "colorama" dependency as it was unnecessary.
 
 ## [0.1.5] - 2022-02-27
 ### Fixed
