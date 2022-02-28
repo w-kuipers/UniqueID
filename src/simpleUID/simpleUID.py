@@ -2,6 +2,7 @@ from .include import length_check
 import string as _string ## Function string is defined in code
 import random
 import secrets
+import warnings
 
 #### 0123456789
 digits = _string.digits
@@ -36,8 +37,14 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
     return generated
 
 #### Return random string value
-def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="string", uppercase_only=False, lowercase_only=False):
+def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="letters", 
+            uppercase_only=False, lowercase_only=False):
 
+    #### ! depricated, will be removed in v1.0.0
+    if type == "integer":
+        type = "number"
+        warnings.warn("Type 'integer' has been depricated, please use type 'number'. The 'integer' type will be removed in 'v1.0.0'", DeprecationWarning, stacklevel=2)
+    
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
 
@@ -46,18 +53,19 @@ def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str
         if not prefix == None:
             raise TypeError('Prefix should be of type str')
 
+    #### String can't be both uppercase only and lowercase only
+    if uppercase_only and lowercase_only:
+        raise ValueError('A string can not be uppercase only and lowercase only at the same time')
+
     #### Check if 'type' is 'integer'
-    if type == "integer":
+    if type == "number":
         generated = str(integer(length=length)) ## Why write duplicate code?
     else:
 
-        #### Check if either uppercase_only or lowercase_only is set te True
-        if uppercase_only and lowercase_only: ## Can't have both ofcourse
-            raise ValueError('A string can not be uppercase only and lowercase only at the same time')
-
+        #### Check for upperscase_only or lowercase_only
         alphabet = _string.ascii_uppercase if uppercase_only else _string.ascii_lowercase if lowercase_only else _string.ascii_letters
 
-        choices = alphabet + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+        choices = alphabet + _string.digits if not type == "letters" else alphabet
         generated = ''.join(secrets.choice(choices) for i in range(length))
 
     if not prefix == None:
