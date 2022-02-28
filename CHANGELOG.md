@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Added
+- Arguments 'lowercase_only' and 'uppercase_only' to the 'string' function.
+
 ## [0.1.5] - 2022-02-27
 ### Fixed
 - Issue where "database" function would fail if argument "method" was undefined.
@@ -28,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - Added information for "database" function.
 
+[Unreleased]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...HEAD
 [0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
 [0.0.1]: https://github.com/w-kuipers/simpleUID/releases/tag/v0.0.1
