@@ -36,7 +36,7 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
     return generated
 
 #### Return random string value
-def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="string"):
+def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="string", uppercase_only=False, lowercase_only=False):
 
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
@@ -50,8 +50,15 @@ def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str
     if type == "integer":
         generated = str(integer(length=length)) ## Why write duplicate code?
     else:
-        alphabet = _string.ascii_letters + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-        generated = ''.join(secrets.choice(alphabet) for i in range(length))
+
+        #### Check if either uppercase_only or lowercase_only is set te True
+        if uppercase_only and lowercase_only: ## Can't have both ofcourse
+            raise ValueError('A string can not be uppercase only and lowercase only at the same time')
+
+        alphabet = _string.ascii_uppercase if uppercase_only else _string.ascii_lowercase if lowercase_only else _string.ascii_letters
+
+        choices = alphabet + _string.digits ## Returns abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+        generated = ''.join(secrets.choice(choices) for i in range(length))
 
     if not prefix == None:
         generated = prefix + generated
