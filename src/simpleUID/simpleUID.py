@@ -122,10 +122,11 @@ def database(cursor, *args, **kwargs):
     id_exists = True
     while id_exists:
 
+        #### Generate
         generated_id = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
 
+        #### Check if it appears in the database
         cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generated_id))
-
         if not len(cursor['cursor'].fetchall()):
             id_exists = False
 
