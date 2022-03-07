@@ -18,6 +18,8 @@ Note the `pip` refers to the Python 3 package manager. In environment where Pyth
 
 ## Usage
 
+For a more detailed explaination, visit the [documentation](https://github.com/w-kuipers/simpleUID/wiki).
+
 Import simpleUID:
 
     import simpleUID
@@ -30,14 +32,16 @@ You can specify the string length and a prefix:
 
     simpleUID.string(length=20, prefix='start')
 
-All functions will will take the arguments `length` and `prefix`, existing functions are:
-| Function        | Args(with default)           | Returns  |
-| ------------- |:-------------:| -----:|
-| string      | length=6, ignore_max_length=False, prefix=6, type="letter"  | 6 character long string |
-| integer     | length=6, ignore_max_length=False, prefix=6      |   6 character long integer |
-| password     | length=8, ignore_max_length=False, prefix=10     |   10 character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits |
-| secret     | type="bytes", ignore_max_length=False, length=32, prefix      |   32 bytes long excl. prefix |
-| database     | cursor:dictionairy, method="string", ignore_max_length=False, length=6, prefix      |   6 character long string excl. prefix |
+All functions are:
+| Function        | Functionality |
+| ------------- | -----|
+| [string](https://github.com/w-kuipers/simpleUID/wiki/usage#string)       | Generates a random string. |
+| [integer](https://github.com/w-kuipers/simpleUID/wiki/usage#integer) | Generates a random integer. |
+| [password](https://github.com/w-kuipers/simpleUID/wiki/usage#password)  |   Generates an alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits. |
+| [bytes](https://github.com/w-kuipers/simpleUID/wiki/usage#bytes)   |  Generates a random byte string. |
+| [hex](https://github.com/w-kuipers/simpleUID/wiki/usage#hex)   |  Generates a random byte string. |
+| [urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string. |
+| [database](https://github.com/w-kuipers/simpleUID/wiki/usage#database)  | Generates a random ID using the `string` or `integer` functions, then it checks it's uniqueness against database. |
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 
@@ -52,7 +56,7 @@ The cursor argument should be a dictionairy structured like the example below:
     }
 
 ### Max Length
-The default maximum length has been set to 100000. This is to prevent unnecessary use of hardware power. If for some reason this should be ignored, set `ignored` to `True`.
+The default maximum length has been set to 100000. This is to prevent unnecessary use of hardware power. If for some reason this should be ignored, set `ignore_max_length` to `True`.
 
 ## Support
 
