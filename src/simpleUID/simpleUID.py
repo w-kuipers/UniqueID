@@ -40,10 +40,10 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
 def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="all", 
             uppercase_only=False, lowercase_only=False):
 
-    #### ! depricated, will be removed in v1.0.0
+    #### ! depricated since 0.1.6, will be removed in v1.0.0
     if type == "integer":
         type = "number"
-        warnings.warn("Type 'integer' has been depricated, please use type 'number'. The 'integer' type will be removed in 'v1.0.0'", DeprecationWarning, stacklevel=2)
+        warnings.warn("Type 'integer' has been depricated since version 0.1.6, please use type 'number'. The 'integer' type will be removed in 'v1.0.0'", DeprecationWarning, stacklevel=2)
     
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
@@ -88,24 +88,53 @@ def password(length:int=10, ignore_max_length:bool=False):
 
     return password
 
-#### Wrapper for secrets
-def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False):
+#### Generate random byte string (Basicly a wrapper for secrets.token_bytes)
+def bytes(length:int=32, ignore_max_length:bool=False):
 
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
 
-    #### Check for arguments
-    if type == 'bytes':
-        return secrets.token_bytes(length)
-    elif type == 'hex':
-        return secrets.token_hex(length)
-    elif type == 'urlsafe':
-        generated = secrets.token_urlsafe(length)
-        if 'padding' in args:
-            generated  += '='
-        if 'encoded' in args:
-            generated  = generated.encode()
-        return generated
+    return secrets.token_bytes(length)
+
+#### Generate a random text string in hexadecimal (Basicly a wrapper for secrets.token_hex)
+def hex(length:int=32, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) ## Will fail if returns True
+
+    return secrets.token_hex(length)
+
+def urlsafe(*args, length:int=32, ignore_max_length:bool=False):
+
+    #### Check if specified length is allowed
+    length_check(length, ignore_max_length) ## Will fail if returns True
+
+    #### Generate
+    generated = secrets.token_urlsafe(length)
+
+    #### Check if 'padding' is defined in 'args'
+    if 'padding' in args:
+        generated  += '=' ## Padding is useful when using for encryption
+
+    #### Check if 'encoded' is defined in 'args'
+    if 'encoded' in args:
+        generated  = generated.encode()
+
+    return generated
+
+#### Secrets function is depricated but will wrap around 'bytes', 'hex' and 'urlsafe' functions
+def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False): #### ! depricated since 0.1.6, will be removed in v1.0.0
+
+    #### Throw warning
+    warnings.warn("The 'secrets' function has been depricated since version 0.1.6 and it will be removed in version 1.0.0. Use seperate 'bytes', 'hex' and 'urlsafe' functions instead", DeprecationWarning, stacklevel=2)
+
+    #### Call the right function
+    if type == "bytes":
+        return bytes(length=length, ignore_max_length=ignore_max_length)
+    elif type == "hex":
+        return hex(length=length, ignore_max_length=ignore_max_length)
+    elif type == "urlsafe":
+        return urlsafe(*args, length=length, ignore_max_length=ignore_max_length)
     else:
         raise Exception('Unable to generate a secret key of type {}'.format(type))
 

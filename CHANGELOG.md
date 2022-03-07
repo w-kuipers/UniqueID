@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - "string" function argument "type" will take "numbers" instead of "integer". This is deprecated in this version and will be removed in version 1.0.0.
+- "secret" function split up into seperate "bytes", "hex" and urlsafe functions. This is deprecated in this version and will be removed in version 1.0.0.
 
 ### Removed
 - Removed "colorama" dependency as it was unnecessary.
