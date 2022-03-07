@@ -94,6 +94,7 @@ def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False)
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
 
+    #### Check for arguments
     if type == 'bytes':
         return secrets.token_bytes(length)
     elif type == 'hex':
@@ -108,10 +109,10 @@ def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False)
     else:
         raise Exception('Unable to generate a secret key of type {}'.format(type))
 
-
 #### Check database cursor
 def database(cursor, *args, **kwargs):
     
+    #### Default method is string
     if not "method" in kwargs:
         method = "string"
     else:
