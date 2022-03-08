@@ -33,15 +33,15 @@ You can specify the string length and a prefix:
     simpleUID.string(length=20, prefix='start')
 
 All functions are:
-| Function        | Functionality 
-| ------------- | -----
-| [string](https://github.com/w-kuipers/simpleUID/wiki/usage#string)       | Generates a random string. 
-| [integer](https://github.com/w-kuipers/simpleUID/wiki/usage#integer) | Generates a random integer. 
-| [password](https://github.com/w-kuipers/simpleUID/wiki/usage#password)  |   Generates an alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits. |
-| [bytes](https://github.com/w-kuipers/simpleUID/wiki/usage#bytes)   |  Generates a random byte string. 
-| [hex](https://github.com/w-kuipers/simpleUID/wiki/usage#hex)   |  Generates a random byte string. 
-| [urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string. 
-| [database](https://github.com/w-kuipers/simpleUID/wiki/usage#database)  | Generates a random ID using the `string` or `integer` functions, then it checks it's uniqueness against database. 
+Function        | Functionality 
+------------- | -----
+[string](https://github.com/w-kuipers/simpleUID/wiki/usage#string)       | Generates a random string. 
+[integer](https://github.com/w-kuipers/simpleUID/wiki/usage#integer) | Generates a random integer. 
+[password](https://github.com/w-kuipers/simpleUID/wiki/usage#password)  |   Generates an alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits. |
+[bytes](https://github.com/w-kuipers/simpleUID/wiki/usage#bytes)   |  Generates a random byte string. 
+[hex](https://github.com/w-kuipers/simpleUID/wiki/usage#hex)   |  Generates a random byte string. 
+[urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string. 
+[database](https://github.com/w-kuipers/simpleUID/wiki/usage#database)  | Generates a random ID using the `string` or `integer` functions, then it checks it's uniqueness against database. 
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 
