@@ -41,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added information for "database" function.
 
 [Unreleased]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...HEAD
+[0.1.6]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
 [0.0.1]: https://github.com/w-kuipers/simpleUID/releases/tag/v0.0.1
