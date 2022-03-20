@@ -3,7 +3,7 @@ from .exceptions import length_value_too_long
 def length_check(length, ignore_max_length=True):
 
     #### Set max length var
-    default_max_length = 100000
+    default_max_length = 1000
 
     #### Skip only when needed
     if not ignore_max_length:
