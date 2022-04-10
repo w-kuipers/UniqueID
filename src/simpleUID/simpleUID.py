@@ -2,7 +2,6 @@ from .include import length_check
 import string as _string ## Function string is defined in code
 import random
 import secrets
-import warnings
 
 #### 0123456789
 digits = _string.digits
@@ -39,11 +38,6 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
 #### Return random string value
 def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="all", 
             uppercase_only=False, lowercase_only=False):
-
-    #### ! depricated since 0.1.6, will be removed in v1.0.0
-    if type == "integer":
-        type = "number"
-        warnings.warn("Type 'integer' has been depricated since version 0.1.6, please use type 'number'. The 'integer' type will be removed in 'v1.0.0'", DeprecationWarning, stacklevel=2)
     
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
@@ -121,22 +115,6 @@ def urlsafe(*args, length:int=32, ignore_max_length:bool=False):
         generated  = generated.encode()
 
     return generated
-
-#### Secrets function is depricated but will wrap around 'bytes', 'hex' and 'urlsafe' functions
-def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False): #### ! depricated since 0.1.6, will be removed in v1.0.0
-
-    #### Throw warning
-    warnings.warn("The 'secrets' function has been depricated since version 0.1.6 and it will be removed in version 1.0.0. Use seperate 'bytes', 'hex' and 'urlsafe' functions instead", DeprecationWarning, stacklevel=2)
-
-    #### Call the right function
-    if type == "bytes":
-        return bytes(length=length, ignore_max_length=ignore_max_length)
-    elif type == "hex":
-        return hex(length=length, ignore_max_length=ignore_max_length)
-    elif type == "urlsafe":
-        return urlsafe(*args, length=length, ignore_max_length=ignore_max_length)
-    else:
-        raise Exception('Unable to generate a secret key of type {}'.format(type))
 
 #### Check database cursor
 def database(cursor, *args, **kwargs):
