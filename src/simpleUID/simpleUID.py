@@ -1,7 +1,9 @@
+from lib2to3.pgen2.pgen import generate_grammar
 from .include import length_check
 import string as _string ## Function string is defined in code
 import random
 import secrets
+from datetime import datetime
 
 #### 0123456789
 digits = _string.digits
@@ -113,6 +115,28 @@ def urlsafe(*args, length:int=32, ignore_max_length:bool=False):
     #### Check if 'encoded' is defined in 'args'
     if 'encoded' in args:
         generated  = generated.encode()
+
+    return generated
+
+#### String from variables
+def var(varstring):
+
+    #### Get today date as most vars use it
+    today = datetime.today()
+
+    #### Dictionary with available variables
+    vars = {
+        "yy": today.year,
+        "mm": today.month,
+        "dd": today.day,
+    }
+
+    if varstring[0] == "%": varstring = varstring[1:] ## Can't start with %
+    generated = "" ## Empty string to append data to
+
+    #### Loop though the variables
+    for var in varstring.split("%"):
+        generated += str(vars[var])
 
     return generated
 
