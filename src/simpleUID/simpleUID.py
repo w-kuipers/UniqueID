@@ -64,6 +64,7 @@ def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str
         choices = alphabet + _string.digits if type == "all" else alphabet if type == "letter" else _string.digits
         generated = ''.join(secrets.choice(choices) for i in range(length))
 
+    #### Add prefix
     if not prefix == None:
         generated = prefix + generated
 
@@ -119,7 +120,7 @@ def urlsafe(*args, length:int=32, ignore_max_length:bool=False):
     return generated
 
 #### String from variables
-def var(varstring):
+def var(varstring:str, prefix:str=None):
 
     #### Get today date as most vars use it
     today = datetime.today()
@@ -138,6 +139,10 @@ def var(varstring):
     for var in varstring.split("%"):
         generated += str(vars[var])
 
+    #### Add prefix
+    if not prefix == None:
+        generated = prefix + generated
+
     return generated
 
 #### Check database cursor
@@ -148,14 +153,18 @@ def database(cursor, *args, **kwargs):
         method = "string"
     else:
         method = kwargs['method']
-        del kwargs['method'] ## Kwargs need to be passed to generation functions, method is useless here
+        del kwargs['method'] ## Kwargs needs to be passed to generation functions, method is useless here
 
     #### Generate new until 'id_exists' becomes False
     id_exists = True
     while id_exists:
 
         #### Generate
-        generated_id = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
+        if method == "string": generated_id = string(*args, **kwargs)
+        if method == "integer": generated_id = integer(*args, **kwargs)
+        if method == "var": generated_id = var(*args, **kwargs)
+
+        # generated_id = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
 
         #### Check if it appears in the database
         cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generated_id))
