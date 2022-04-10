@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - "var" function to generate a string based on a variable string that is passed as an argument.
+- "var" method to "database" function.
 
 ### Changed
 - Changed 'default_max_length' to 1000.
