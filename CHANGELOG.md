@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- "var" function to generate a string based on a variable string that is passed as an argument.
+
 ### Changed
 - Changed 'default_max_length' to 1000.
+
+### Removed
+- Removed "secret" function as it was depricated.
+- Removed deprication warning when "string" function was given type "integer" instead of "numbers".
 
 ## [0.1.6] - 2022-03-08
 ### Added
