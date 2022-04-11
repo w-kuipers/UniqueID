@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="simpleUID",
-    version="1.0.0-alpha",
+    version="1.0.0-alpha.2",
     author="Wibo Kuipers",
     author_email="w.kuipers@filmage.nl",
     description="A simple and intuitive Python package for generating unique IDs.",
