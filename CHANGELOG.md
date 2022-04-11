@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0-alpha.2]
 ### Changed
 - "var" method in database will now add up until it's unique.
 
@@ -56,7 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - Added information for "database" function.
 
-[Unreleased]: https://github.com/w-kuipers/simpleUID/compare/v1.0.0...HEAD
+[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0
 [1.0.0-alpha]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0
 [0.1.6]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
