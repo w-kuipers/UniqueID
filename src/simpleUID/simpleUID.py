@@ -124,10 +124,12 @@ def var(varstring:str, prefix:str=None):
 
     #### Get today date as most vars use it
     today = datetime.today()
+    print(str(today.year)[-2:])
 
     #### Dictionary with available variables
     vars = {
-        "yy": today.year,
+        "yyyy": today.year,
+        "yy": str(today.year)[-2:],
         "mm": today.month,
         "dd": today.day,
     }
