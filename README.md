@@ -60,7 +60,8 @@ Function        | Functionality
 [password](https://github.com/w-kuipers/simpleUID/wiki/usage#password)  |   Generates an alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits. |
 [bytes](https://github.com/w-kuipers/simpleUID/wiki/usage#bytes)   |  Generates a random byte string. 
 [hex](https://github.com/w-kuipers/simpleUID/wiki/usage#hex)   |  Generates a random byte string. 
-[urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string. 
+[urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string.
+[var](https://github.com/w-kuipers/simpleUID/wiki/usage#var)   |  Generates a string based on an array of variables. 
 [database](https://github.com/w-kuipers/simpleUID/wiki/usage#database)  | Generates a random ID using the `string` or `integer` functions, then it checks it's uniqueness against database. 
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
