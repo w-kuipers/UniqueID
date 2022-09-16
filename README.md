@@ -77,7 +77,7 @@ The cursor argument should be a dictionairy structured like the example below:
     }
 
 ### Max Length
-The default maximum length has been set to 1000. This is to prevent unnecessary use of hardware power. If for some reason this should be ignored, set `ignore_max_length` to `True`.
+The default maximum length has been set to 1000. This is to prevent unnecessary use of hardware resources. If for some reason this should be ignored, set `ignore_max_length` to `True`.
 
 ## Support
 
