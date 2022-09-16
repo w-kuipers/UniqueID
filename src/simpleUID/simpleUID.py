@@ -1,4 +1,3 @@
-from lib2to3.pgen2.pgen import generate_grammar
 from .include import length_check
 import string as _string ## Function string is defined in code
 import random
