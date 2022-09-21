@@ -34,7 +34,7 @@ This package helps developers by bringing them some "quality of life" features. 
 
     pip install simpleUID
 
-Note the `pip` refers to the Python 3 package manager. In environment where Python 2 is also available the correct command may be `pip3`.
+Note that `pip` refers to the Python 3 package manager. In an environment where Python 2 is also present the correct command may be `pip3`.
 
 ## Usage
 
