@@ -186,7 +186,6 @@ def database(cursor, *args, **kwargs):
             #### Generate
             if method == "string": generated_id = string(*args, **kwargs)
             if method == "integer": generated_id = integer(*args, **kwargs)
-            if method == "var": generated_id = var(*args, **kwargs)
 
             #### Check if it appears in the database
             cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id }"')
