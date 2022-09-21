@@ -67,11 +67,11 @@ Function        | Functionality
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 
 #### Cursor
-Currently only the [mysql-connector](https://pypi.org/project/mysql-connector/) cursor object has been tested to work with this package. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub. 
+Currently only SQL cursor objects are supported. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub. 
 The cursor argument should be a dictionairy structured like the example below:
 
     cursor = {
-        "cursor": cursor, ## Currently only tested with MYSQL
+        "cursor": cursor, ## Currently only tested with SQL databases
         "table": "table_name",
         "column": "column_name"
     }
