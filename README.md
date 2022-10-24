@@ -1,8 +1,10 @@
-# simpleUID (unique ID) for Python
+# SimpleUID (unique ID) for Python
 
 [![GitHub releases](https://img.shields.io/github/v/release/w-kuipers/simpleUID)](https://github.com/w-kuipers/simpleUID/releases)
 [![PyPI release](https://img.shields.io/pypi/v/simpleUID.svg)](https://pypi.org/project/simpleUID/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![](https://img.shields.io/github/last-commit/w-kuipers/simpleUID?label=last%20modified)](https://github.com/w-kuipers/simpleUID)
+
 
 A simple and intuitive Python package for generating unique IDs.
 
@@ -32,7 +34,7 @@ This package helps developers by bringing them some "quality of life" features. 
 
     pip install simpleUID
 
-Note the `pip` refers to the Python 3 package manager. In environment where Python 2 is also available the correct command may be `pip3`.
+Note that `pip` refers to the Python 3 package manager. In an environment where Python 2 is also present the correct command may be `pip3`.
 
 ## Usage
 
@@ -58,23 +60,24 @@ Function        | Functionality
 [password](https://github.com/w-kuipers/simpleUID/wiki/usage#password)  |   Generates an alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits. |
 [bytes](https://github.com/w-kuipers/simpleUID/wiki/usage#bytes)   |  Generates a random byte string. 
 [hex](https://github.com/w-kuipers/simpleUID/wiki/usage#hex)   |  Generates a random byte string. 
-[urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string. 
+[urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string.
+[var](https://github.com/w-kuipers/simpleUID/wiki/usage#var)   |  Generates a string based on an array of variables. 
 [database](https://github.com/w-kuipers/simpleUID/wiki/usage#database)  | Generates a random ID using the `string` or `integer` functions, then it checks it's uniqueness against database. 
 
 Keep in mind that the prefix for the `integer` function should be of type `int`.
 
 #### Cursor
-Currently only the [mysql-connector](https://pypi.org/project/mysql-connector/) cursor object has been tested to work with this package. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub. 
+Currently only SQL cursor objects are supported. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub. 
 The cursor argument should be a dictionairy structured like the example below:
 
     cursor = {
-        "cursor": cursor, ## Currently only tested with MYSQL
+        "cursor": cursor, ## Currently only tested with SQL databases
         "table": "table_name",
         "column": "column_name"
     }
 
 ### Max Length
-The default maximum length has been set to 1000. This is to prevent unnecessary use of hardware power. If for some reason this should be ignored, set `ignore_max_length` to `True`.
+The default maximum length has been set to 1000. This is to prevent unnecessary use of hardware resources. If for some reason this should be ignored, set `ignore_max_length` to `True`.
 
 ## Support
 

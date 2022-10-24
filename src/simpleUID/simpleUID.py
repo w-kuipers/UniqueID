@@ -2,7 +2,7 @@ from .include import length_check
 import string as _string ## Function string is defined in code
 import random
 import secrets
-import warnings
+from datetime import datetime
 
 #### 0123456789
 digits = _string.digits
@@ -39,11 +39,6 @@ def integer(length:int=6, prefix:int=None, ignore_max_length:bool=False):
 #### Return random string value
 def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str="all", 
             uppercase_only=False, lowercase_only=False):
-
-    #### ! depricated since 0.1.6, will be removed in v1.0.0
-    if type == "integer":
-        type = "number"
-        warnings.warn("Type 'integer' has been depricated since version 0.1.6, please use type 'number'. The 'integer' type will be removed in 'v1.0.0'", DeprecationWarning, stacklevel=2)
     
     #### Check if specified length is allowed
     length_check(length, ignore_max_length) ## Will fail if returns True
@@ -68,6 +63,7 @@ def string(length:int=6, prefix:str=None, ignore_max_length:bool=False, type:str
         choices = alphabet + _string.digits if type == "all" else alphabet if type == "letter" else _string.digits
         generated = ''.join(secrets.choice(choices) for i in range(length))
 
+    #### Add prefix
     if not prefix == None:
         generated = prefix + generated
 
@@ -122,21 +118,34 @@ def urlsafe(*args, length:int=32, ignore_max_length:bool=False):
 
     return generated
 
-#### Secrets function is depricated but will wrap around 'bytes', 'hex' and 'urlsafe' functions
-def secret(*args, length:int=32, type:str='bytes', ignore_max_length:bool=False): #### ! depricated since 0.1.6, will be removed in v1.0.0
+#### String from variables
+def var(varstring:str, prefix:str=None):
 
-    #### Throw warning
-    warnings.warn("The 'secrets' function has been depricated since version 0.1.6 and it will be removed in version 1.0.0. Use seperate 'bytes', 'hex' and 'urlsafe' functions instead", DeprecationWarning, stacklevel=2)
+    #### Get today date as most vars use it
+    today = datetime.today()
 
-    #### Call the right function
-    if type == "bytes":
-        return bytes(length=length, ignore_max_length=ignore_max_length)
-    elif type == "hex":
-        return hex(length=length, ignore_max_length=ignore_max_length)
-    elif type == "urlsafe":
-        return urlsafe(*args, length=length, ignore_max_length=ignore_max_length)
-    else:
-        raise Exception('Unable to generate a secret key of type {}'.format(type))
+    #### Dictionary with available variables
+    vars = {
+        "yyyy": today.year,
+        "yy": str(today.year)[-2:],
+        "mm": today.month if len(str(today.month)) == 2 else "0" + str(today.month),
+        "m": today.month,
+        "dd": today.day if len(str(today.day)) == 2 else "0" + str(today.day),
+        "d": today.day,
+    }
+
+    if varstring[0] == "%": varstring = varstring[1:] ## Can't start with %
+    generated = "" ## Empty string to append data to
+
+    #### Loop though the variables
+    for var in varstring.split("%"):
+        generated += str(vars[var])
+
+    #### Add prefix
+    if not prefix == None:
+        generated = prefix + generated
+
+    return generated
 
 #### Check database cursor
 def database(cursor, *args, **kwargs):
@@ -146,18 +155,41 @@ def database(cursor, *args, **kwargs):
         method = "string"
     else:
         method = kwargs['method']
-        del kwargs['method'] ## Kwargs need to be passed to generation functions, method is useless here
+        del kwargs['method'] ## Kwargs needs to be passed to generation functions, method is useless here
 
-    #### Generate new until 'id_exists' becomes False
     id_exists = True
-    while id_exists:
 
-        #### Generate
-        generated_id = string(*args, **kwargs) if method == 'string' else integer(*args, **kwargs) if method == 'integer' else None
+    #### Var method uses a seperate approach
+    if method == "var":
 
-        #### Check if it appears in the database
-        cursor['cursor'].execute('SELECT "{}" FROM {} WHERE {} = "{}"'.format(cursor['column'], cursor['table'], cursor['column'], generated_id))
-        if not len(cursor['cursor'].fetchall()):
-            id_exists = False
+        #### Generate the variable ID
+        generated_id = var(*args, **kwargs)
+        suffix = 1 ## Not ending in 0 
 
-    return generated_id
+        while id_exists:
+
+            #### Check if it appears in the database
+            cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
+            print(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
+
+            if len(cursor['cursor'].fetchall()): suffix += 1 ## If ID already exists add 1 to suffix
+            else: id_exists = False
+
+        #### Return the generated ID with the suffix
+        return generated_id + str(suffix)
+            
+
+    #### If method is not var, generate new until 'id_exists' becomes False
+    else:
+        while id_exists:
+
+            #### Generate
+            if method == "string": generated_id = string(*args, **kwargs)
+            if method == "integer": generated_id = integer(*args, **kwargs)
+
+            #### Check if it appears in the database
+            cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id }"')
+            if not len(cursor['cursor'].fetchall()):
+                id_exists = False
+
+        return generated_id

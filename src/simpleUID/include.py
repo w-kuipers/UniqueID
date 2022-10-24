@@ -1,5 +1,6 @@
 from .exceptions import length_value_too_long
 
+#### Function to check the specified length
 def length_check(length, ignore_max_length=True):
 
     #### Set max length var

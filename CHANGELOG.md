@@ -4,9 +4,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0-alpha.3]
+### Fixed
+- "var" methods were not behaving the way they should.
+
+### Added
+- Short versions of date variables to "var" method.
+
+## [1.0.0-alpha.2]
+### Changed
+- "var" method in database will now add up until it's unique.
+
+## [1.0.0-alpha]
+### Added
+- "var" function to generate a string based on a variable string that is passed as an argument.
+- "var" method to "database" function.
+
 ### Changed
 - Changed 'default_max_length' to 1000.
+
+### Removed
+- Removed "secret" function as it was depricated.
+- Removed deprication warning when "string" function was given type "integer" instead of "numbers".
 
 ## [0.1.6] - 2022-03-08
 ### Added
@@ -44,7 +63,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - Added information for "database" function.
 
-[Unreleased]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...HEAD
+[1.0.0-alpha.3]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.3
+[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.2
+[1.0.0-alpha]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha
 [0.1.6]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
