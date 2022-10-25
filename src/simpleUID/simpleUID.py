@@ -157,39 +157,61 @@ def database(cursor, *args, **kwargs):
         method = kwargs['method']
         del kwargs['method'] ## Kwargs needs to be passed to generation functions, method is useless here
 
-    id_exists = True
+    #### Default type is sql
+    if not "type" in cursor:
+        cursor_type = "sql"
+    else:
+        cursor_type = cursor['type']
+        del cursor['type'] ## Kwargs needs to be passed to generation functions, type is useless here
 
-    #### Var method uses a seperate approach
-    if method == "var":
+    #### * SQL functionality
+    if cursor_type == "sql":
 
-        #### Generate the variable ID
-        generated_id = var(*args, **kwargs)
-        suffix = 1 ## Not ending in 0 
+        id_exists = True
 
-        while id_exists:
+        #### Var method uses a seperate approach
+        if method == "var":
 
-            #### Check if it appears in the database
-            cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
-            print(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
+            #### Generate the variable ID
+            generated_id = var(*args, **kwargs)
+            suffix = 1 ## Not ending in 0 
 
-            if len(cursor['cursor'].fetchall()): suffix += 1 ## If ID already exists add 1 to suffix
-            else: id_exists = False
+            while id_exists:
 
-        #### Return the generated ID with the suffix
-        return generated_id + str(suffix)
+                #### Check if it appears in the database
+                cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
+                print(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
+
+                if len(cursor['cursor'].fetchall()): suffix += 1 ## If ID already exists add 1 to suffix
+                else: id_exists = False
+
+            #### Return the generated ID with the suffix
+            return generated_id + str(suffix)
+                
+
+        #### If method is not var, generate new until 'id_exists' becomes False
+        else:
+            while id_exists:
+
+                #### Generate
+                if method == "string": generated_id = string(*args, **kwargs)
+                if method == "integer": generated_id = integer(*args, **kwargs)
+
+                #### Check if it appears in the database
+                cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id }"')
+                if not len(cursor['cursor'].fetchall()):
+                    id_exists = False
+
+            return generated_id
+
+    elif cursor_type == "mongo":
+
+        id_exists = True
+
+        #### Var method uses a seperate approach
+        if method == "var":
             
 
-    #### If method is not var, generate new until 'id_exists' becomes False
+
     else:
-        while id_exists:
-
-            #### Generate
-            if method == "string": generated_id = string(*args, **kwargs)
-            if method == "integer": generated_id = integer(*args, **kwargs)
-
-            #### Check if it appears in the database
-            cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id }"')
-            if not len(cursor['cursor'].fetchall()):
-                id_exists = False
-
-        return generated_id
+        raise NameError(f"{ cursor_type.capitalize() } cursor is not supported!")
