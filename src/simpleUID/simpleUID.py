@@ -180,8 +180,6 @@ def database(cursor, *args, **kwargs):
 
                 #### Check if it appears in the database
                 cursor['cursor'].execute(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
-                print(f'SELECT "{ cursor["column"] }" FROM { cursor["table"] } WHERE { cursor["column"] } = "{ generated_id + str(suffix) }"')
-
                 if len(cursor['cursor'].fetchall()): suffix += 1 ## If ID already exists add 1 to suffix
                 else: id_exists = False
 
@@ -211,7 +209,6 @@ def database(cursor, *args, **kwargs):
         #### Var method uses a seperate approach
         if method == "var":
             
-
 
     else:
         raise NameError(f"{ cursor_type.capitalize() } cursor is not supported!")
