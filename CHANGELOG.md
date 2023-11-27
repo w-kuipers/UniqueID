@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 ### Changed
+- **BREAKING**: `string` method renamed `alphanumeric`
+- **BREAKING**: `integer` method renamed `numeric`
 
 
 ## [1.0.0]
@@ -13,14 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0-alpha.3]
 ### Fixed
-- "var" methods were not behaving the way they should.
+- `var` methods were not behaving the way they should.
 
 ### Added
-- Short versions of date variables to "var" method.
+- Short versions of date variables to `var` method.
 
 ## [1.0.0-alpha.2]
 ### Changed
-- "var" method in database will now add up until it's unique.
+- `var` method in database will now add up until it's unique.
 
 ## [1.0.0-alpha]
 ### Added
@@ -70,12 +72,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - Added information for "database" function.
 
-[1.0.0]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0
-[1.0.0-alpha.3]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.3
-[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.2
-[1.0.0-alpha]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha
-[0.1.6]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...v0.1.6
-[0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
-[0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
-[0.0.1]: https://github.com/w-kuipers/simpleUID/releases/tag/v0.0.1
+[unreleased]: https://github.com/w-kuipers/simpleuid/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0
+[1.0.0-alpha.3]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0-alpha.3
+[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0-alpha.2
+[1.0.0-alpha]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0-alpha
+[0.1.6]: https://github.com/w-kuipers/simpleuid/compare/v0.1.5...v0.1.6
+[0.1.5]: https://github.com/w-kuipers/simpleuid/compare/v0.1.4...v0.1.5
+[0.1.4]: https://github.com/w-kuipers/simpleuid/compare/v0.1.3...v0.1.4
+[0.0.1]: https://github.com/w-kuipers/simpleuid/releases/tag/v0.0.1
 
