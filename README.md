@@ -46,11 +46,11 @@ Import simpleUID:
 
 Create a random string:
 
-    simpleuid.string()
+    simpleuid.alphanumeric()
 
 You can specify the string length and a prefix:
 
-    simpleuid.string(length=20, prefix='start')
+    simpleuid.stringc(length=20, prefix='start')
 
 All functions are:
 Function        | Functionality 

@@ -1,15 +1,21 @@
-use crate::constants::NUMERIC;
 use pyo3::prelude::*;
 use rand::Rng;
 
+enum Case {
+    All,
+    Upper,
+    Lower,
+}
+
 #[pyfunction]
-pub fn numeric(length: usize, prefix: &str) -> String {
+pub fn alpha(length: usize, prefix: &str, case: &Case) -> String {
+    const CHARSET: &[u8] = b"abcdefghijklmnopABCDEFGHIJKLMNOP";
     let mut rng = rand::thread_rng();
 
     let generated: String = (0..length)
         .map(|_| {
-            let idx = rng.gen_range(0..NUMERIC.len());
-            NUMERIC[idx] as char
+            let idx = rng.gen_range(0..CHARSET.len());
+            CHARSET[idx] as char
         })
         .collect();
 
