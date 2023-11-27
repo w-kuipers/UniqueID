@@ -1,5 +1,7 @@
-mod methods;
+mod alphanumeric;
 
 fn main() {
-    println!("{}", methods::integer());
+    let generated: String = alphanumeric::alphanumeric(30090, "");
+
+    println!("{}", generated);
 }
