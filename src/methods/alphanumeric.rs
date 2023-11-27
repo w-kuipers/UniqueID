@@ -1,5 +1,7 @@
+use pyo3::prelude::*;
 use rand::{distributions::Alphanumeric, Rng};
 
+#[pyfunction]
 pub fn alphanumeric(length: usize, prefix: &str) -> String {
     let generated: String = rand::thread_rng()
         .sample_iter(&Alphanumeric)
@@ -8,7 +10,6 @@ pub fn alphanumeric(length: usize, prefix: &str) -> String {
         .collect();
 
     if prefix.is_empty() {
-        println!("no prefix");
         return generated;
     }
 
