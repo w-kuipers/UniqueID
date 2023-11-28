@@ -78,7 +78,7 @@ Function        | Functionality
 [alphanumeric](https://github.com/w-kuipers/simpleuid/wiki/usage#alphanumeric)       | Generates a random string containing both letters and numbers. 
 [alpha](https://github.com/w-kuipers/simpleuid/wiki/usage#alpha) | Generates a random string containing only letters. 
 [numeric](https://github.com/w-kuipers/simpleuid/wiki/usage#numeric)  | Generates a random string containing only numbers |
-
+[var](https://github.com/w-kuipers/simpleuid/wiki/usage#var) | Generates a string based on a variable string provided by the user
 ## Support
 
 If you found a problem with the software, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub.
