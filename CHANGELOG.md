@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **BREAKING**: `integer` method renamed `numeric`.
 
-## [1.0.0-alpha.3]
+## [1.0.0] - 2022-10-24
 ### Fixed
 - `var` methods were not behaving the way they should.
 
@@ -70,9 +70,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [unreleased]: https://github.com/w-kuipers/simpleuid/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0
-[1.0.0-alpha.3]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0-alpha.3
-[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0-alpha.2
-[1.0.0-alpha]: https://github.com/w-kuipers/simpleuid/compare/v0.1.6...v1.0.0-alpha
 [0.1.6]: https://github.com/w-kuipers/simpleuid/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/w-kuipers/simpleuid/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/w-kuipers/simpleuid/compare/v0.1.3...v0.1.4
