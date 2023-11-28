@@ -1,11 +1,14 @@
-from .simpleuid import * 
+from .simpleuid import *
 from typing import Optional
+from .types import Case
 
-def alpha(length:int  = 10, prefix: Optional[str] = ""):
-    return simpleuid.alpha(length, prefix)
+print(Case)
 
-def alphanumeric(length:int = 10, prefix: Optional[str] = ""):
-    return simpleuid.alphanumeric(length, prefix)
+def alpha(length:int  = 10, prefix: Optional[str] = "", case: Optional[Case] = "all"):
+    return simpleuid.alpha(length, prefix, case)
+
+def alphanumeric(length:int = 10, prefix: Optional[str] = "", case: Optional[Case] = "all"):
+    return simpleuid.alphanumeric(length, prefix, case)
 
 def numeric(length:int = 10, prefix: Optional[str] = ""):
     return simpleuid.numeric(length, prefix)

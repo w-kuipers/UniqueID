@@ -1,21 +1,21 @@
+use crate::constants::{ALPHA, ALPHA_LOWER, ALPHA_UPPER};
 use pyo3::prelude::*;
 use rand::Rng;
 
-enum Case {
-    All,
-    Upper,
-    Lower,
-}
-
 #[pyfunction]
-pub fn alpha(length: usize, prefix: &str, case: &Case) -> String {
-    const CHARSET: &[u8] = b"abcdefghijklmnopABCDEFGHIJKLMNOP";
+pub fn alpha(length: usize, prefix: &str, case: &str) -> String {
     let mut rng = rand::thread_rng();
+
+    let charset: &[u8] = match case {
+        "upper" => ALPHA_UPPER,
+        "lower" => ALPHA_LOWER,
+        _ => ALPHA,
+    };
 
     let generated: String = (0..length)
         .map(|_| {
-            let idx = rng.gen_range(0..CHARSET.len());
-            CHARSET[idx] as char
+            let idx = rng.gen_range(0..charset.len());
+            charset[idx] as char
         })
         .collect();
 

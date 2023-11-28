@@ -1,14 +1,22 @@
-use crate::constants::ALPHANUMERIC;
+use crate::constants::{ALPHANUMERIC, ALPHANUMERIC_LOWER, ALPHANUMERIC_UPPER};
 use pyo3::prelude::*;
-use rand::{distributions::Alphanumeric, Rng};
+use rand::Rng;
 
 #[pyfunction]
-pub fn alphanumeric(length: usize, prefix: &str) -> String {
-    println!("The constant value {}", ALPHANUMERIC);
-    let generated: String = rand::thread_rng()
-        .sample_iter(&Alphanumeric)
-        .take(length)
-        .map(char::from)
+pub fn alphanumeric(length: usize, prefix: &str, case: &str) -> String {
+    let mut rng = rand::thread_rng();
+
+    let charset: &[u8] = match case {
+        "upper" => ALPHANUMERIC_UPPER,
+        "lower" => ALPHANUMERIC_LOWER,
+        _ => ALPHANUMERIC,
+    };
+
+    let generated: String = (0..length)
+        .map(|_| {
+            let idx = rng.gen_range(0..charset.len());
+            charset[idx] as char
+        })
         .collect();
 
     if prefix.is_empty() {
