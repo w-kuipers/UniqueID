@@ -5,13 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Added
+- `alphanumeric` and `alpha` methods. These replace `v1` method `string`.
+
+### Removed
+- **BREAKING**: `string` method.
+- `ignore_max_length` option in the `string` and `integer` functions, the `length` option can now be as big as desired.
+
 ### Changed
-- **BREAKING**: `string` method renamed `alphanumeric`
-- **BREAKING**: `integer` method renamed `numeric`
-
-
-## [1.0.0]
-### Fixed
+- **BREAKING**: `integer` method renamed `numeric`.
 
 ## [1.0.0-alpha.3]
 ### Fixed
