@@ -6,6 +6,7 @@ use rand::Rng;
 pub fn alphanumeric(length: usize, prefix: &str, case: &str) -> String {
     let mut rng = rand::thread_rng();
 
+    // Define charset based on user selection
     let charset: &[u8] = match case {
         "upper" => ALPHANUMERIC_UPPER,
         "lower" => ALPHANUMERIC_LOWER,
@@ -19,6 +20,7 @@ pub fn alphanumeric(length: usize, prefix: &str, case: &str) -> String {
         })
         .collect();
 
+    // If prefix is an empty string, we ignore it
     if prefix.is_empty() {
         return generated;
     }

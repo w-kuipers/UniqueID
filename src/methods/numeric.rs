@@ -13,6 +13,7 @@ pub fn numeric(length: usize, prefix: &str) -> String {
         })
         .collect();
 
+    // If prefix is an empty string, we ignore it
     if prefix.is_empty() {
         return generated;
     }
