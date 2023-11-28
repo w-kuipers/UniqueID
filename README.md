@@ -41,48 +41,43 @@ Note that `pip` refers to the Python 3 package manager. In an environment where 
 For a more detailed explaination, visit the [documentation](https://github.com/w-kuipers/simpleUID/wiki).
 
 Import simpleUID:
+``` bash
+import simpleuid
+```
 
-    import simpleuid
+Create a random string with letters and numbers:
+``` python
+simpleuid.alphanumeric()
+```
 
-Create a random string:
+Or just letters:
+``` python
+simpleuid.alpha()
+```
 
-    simpleuid.alphanumeric()
+or just numbers:
+``` python
+simpleuid.numeric()
+```
 
 You can specify the string length and a prefix:
+``` python
+simpleuid.alphanumeric(length=20, prefix='start')
+```
 
-    simpleuid.stringc(length=20, prefix='start')
+Methods `alphanumeric` and `alpha` allow you the choice for only `uppercase` or `lowercase` characters. The default for this is `all`.
+``` python
+simpleuid.alphanumeric(case="all") ## Both UPPERCASE and lowercase (default)
+simpleuid.alphanumeric(case="upper") ## ONLY UPPERCASE
+simpleuid.alphanumeric(case="lower") ## only lowercase
+```
 
 All functions are:
 Function        | Functionality 
 ------------- | -----
-[string](https://github.com/w-kuipers/simpleUID/wiki/usage#string)       | Generates a random string. 
-[integer](https://github.com/w-kuipers/simpleUID/wiki/usage#integer) | Generates a random integer. 
-[password](https://github.com/w-kuipers/simpleUID/wiki/usage#password)  |   Generates an alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits. |
-[bytes](https://github.com/w-kuipers/simpleUID/wiki/usage#bytes)   |  Generates a random byte string. 
-[hex](https://github.com/w-kuipers/simpleUID/wiki/usage#hex)   |  Generates a random byte string. 
-[urlsafe](https://github.com/w-kuipers/simpleUID/wiki/usage#urlsafe)   |  Generates a random byte string.
-[var](https://github.com/w-kuipers/simpleUID/wiki/usage#var)   |  Generates a string based on an array of variables. 
-[database](https://github.com/w-kuipers/simpleUID/wiki/usage#database)  | Generates a random ID using the `string` or `integer` functions, then it checks it's uniqueness against database. 
-
-Keep in mind that the prefix for the `integer` function should be of type `int`.
-
-#### Cursor
-Currently only SQL cursor objects are supported. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub. 
-The cursor argument should be a dictionairy structured like the example below:
-
-    #### SQL example
-    cursor = {
-        "cursor": cursor,
-        "table": "table_name",
-        "column": "column_name"
-    }
-
-    #### MongoDB example
-    cursor = {
-        "cursor": mongo_client["db"],
-        "column": "column_name",
-        "type": "mongo"
-    }
+[alphanumeric](https://github.com/w-kuipers/simpleuid/wiki/usage#alphanumeric)       | Generates a random string containing both letters and numbers. 
+[alpha](https://github.com/w-kuipers/simpleuid/wiki/usage#alpha) | Generates a random string containing only letters. 
+[numeric](https://github.com/w-kuipers/simpleuid/wiki/usage#numeric)  | Generates a random string containing only numbers |
 
 ## Support
 
