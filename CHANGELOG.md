@@ -21,17 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Short versions of date variables to `var` method.
-
-## [1.0.0-alpha.2]
-### Changed
-- `var` method in database will now add up until it's unique.
-
-## [1.0.0-alpha]
-### Added
 - "var" function to generate a string based on a variable string that is passed as an argument.
 - "var" method to "database" function.
 
 ### Changed
+- `var` method in database will now add up until it's unique.
 - Changed 'default_max_length' to 1000.
 
 ### Removed
