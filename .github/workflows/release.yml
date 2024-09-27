@@ -21,7 +21,7 @@ jobs:
       - name: Build binary wheel and source tarball
         run: |
           python3 -m  pip install build --user
-          python3 scripts/build-scripts/pypi.py ${{ github.ref_name }}
+          python3 scripts/build.py ${{ github.ref_name }}
 
       - name: Store Python API
         uses: actions/upload-artifact@v3
