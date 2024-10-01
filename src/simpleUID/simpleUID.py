@@ -100,7 +100,7 @@ def password(length: int = 10, ignore_max_length: bool = False, symbols=True):
 
     alphabet = _string.ascii_letters + digits
     if symbols:
-        alphabet += "!!!@@@###$$$%%%^^^&&&***"
+        alphabet += "!!!@@@###...---___^^^&&&***"
 
     while True:
         password = "".join(secrets.choice(alphabet) for i in range(length))
