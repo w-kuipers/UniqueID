@@ -7,8 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+- `alphanumeric` and `alpha` methods. These replace `v1` method `string`.
+
+### Removed
+
+- **BREAKING**: `string` method.
+- `ignore_max_length` option in the `string` and `integer` functions, the `length` option can now be as big as desired.
+
 ### Changed
 
+- **BREAKING**: `integer` method renamed `numeric`.
 - Improve parameter types
 - Add documentation to functions
 
