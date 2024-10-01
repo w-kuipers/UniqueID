@@ -2,6 +2,7 @@ import random
 import secrets
 import string as _string  # # Function string is defined in code
 from datetime import datetime
+from typing import Optional
 
 from .include import length_check
 
@@ -10,7 +11,7 @@ digits = _string.digits
 
 
 #### Return random integer value
-def integer(length: int = 6, prefix: int = None, ignore_max_length: bool = False):
+def integer(length: int = 6, prefix: Optional[int] = None, ignore_max_length: bool = False):
 
     #### Check if specified length is allowed
     length_check(length, ignore_max_length)  ## Will fail if returns True
@@ -46,7 +47,7 @@ def integer(length: int = 6, prefix: int = None, ignore_max_length: bool = False
 #### Return random string value
 def string(
     length: int = 6,
-    prefix: str = None,
+    prefix: Optional[str] = None,
     ignore_max_length: bool = False,
     type: str = "all",
     uppercase_only=False,
@@ -152,7 +153,7 @@ def urlsafe(*args, length: int = 32, ignore_max_length: bool = False):
 
 
 #### String from variables
-def var(varstring: str, prefix: str = None):
+def var(varstring: str, prefix: Optional[str] = None):
 
     #### Get today date as most vars use it
     today = datetime.today()
