@@ -10,6 +10,14 @@ def test_default():
     generated = alpha()
     assert len(generated) == 6
 
+    ## As the generated value is random, it does not always
+    ## include numbers. With this absurdly long string 
+    ## the chance for there to be a upper and lower case
+    ## is almost guaranteed
+    generated_long = alpha(10000)
+    assert has_upper(generated_long) == True
+    assert has_lower(generated_long) == True
+
 def test_uppercase():
     generated = alpha(case="upper")
     assert has_upper(generated) == True
