@@ -11,7 +11,7 @@ def alpha(length: int = 6, prefix: Optional[str] = None, case: Case = None):
     charset = ALPHA
     if case == "upper":
         charset = ALPHA_UPPER
-    else:
+    if case == "lower":
         charset = ALPHA_LOWER
 
     generated = "".join(choice(charset) for _ in range(length))
