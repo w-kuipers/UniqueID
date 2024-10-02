@@ -15,3 +15,12 @@ def has_lower(string: str):
             break
 
     return result
+
+def has_number(string: str):
+    result = False
+    for char in string:
+        if char.isnumeric():
+            result = True
+            break
+
+    return result
