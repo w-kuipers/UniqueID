@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **BREAKING**: Updated the package name from `simpleUID` to `strig`
 - **BREAKING**: `integer` method renamed `numeric`.
 - Improve parameter types
 - Add documentation to functions
@@ -126,15 +127,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added information for "database" function.
 
-[unreleased]: https://github.com/w-kuipers/simpleUID/compare/v1.1.2...HEAD
-[1.1.2]: https://github.com/w-kuipers/simpleUID/compare/v1.1.1...v1.1.2
-[1.1.1]: https://github.com/w-kuipers/simpleUID/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/w-kuipers/simpleUID/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0
-[1.0.0-alpha.3]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.3
-[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.2
-[1.0.0-alpha]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha
-[0.1.6]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...v0.1.6
-[0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
-[0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
-[0.0.1]: https://github.com/w-kuipers/simpleUID/releases/tag/v0.0.1
+[unreleased]: https://github.com/w-kuipers/strig/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/w-kuipers/strig/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/w-kuipers/strig/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/w-kuipers/strig/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0
+[1.0.0-alpha.3]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0-alpha.3
+[1.0.0-alpha.2]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0-alpha.2
+[1.0.0-alpha]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0-alpha
+[0.1.6]: https://github.com/w-kuipers/strig/compare/v0.1.5...v0.1.6
+[0.1.5]: https://github.com/w-kuipers/strig/compare/v0.1.4...v0.1.5
+[0.1.4]: https://github.com/w-kuipers/strig/compare/v0.1.3...v0.1.4
+[0.0.1]: https://github.com/w-kuipers/strig/releases/tag/v0.0.1
