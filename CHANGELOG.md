@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **BREAKING**: Updated the package name from `simpleUID` to `strig`
 - **BREAKING**: `integer` method renamed `numeric`.
 - Improve parameter types
 - Add documentation to functions

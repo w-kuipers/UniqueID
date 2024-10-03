@@ -4,16 +4,16 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="simpleUID",
+    name="strig",
     version="indev",
     author="Wibo Kuipers",
     author_email="wkuipersoss@gmail.com",
-    description="A simple and intuitive Python package for generating unique IDs.",
+    description="A simple and intuitive Python package for generating random strings and numbers. ",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/w-kuipers/simpleUID",
+    url="https://github.com/w-kuipers/strig",
     project_urls={
-        "Bug Tracker": "https://github.com/w-kuipers/simpleUID/issues",
+        "Bug Tracker": "https://github.com/w-kuipers/strig/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
