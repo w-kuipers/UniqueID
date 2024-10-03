@@ -3,8 +3,10 @@ import secrets
 import string as _string
 from datetime import datetime
 from typing import Optional
-
+from warnings import warn
 from .include import length_check
+
+warn("DEPRICATED: As of version 2.0.0 SimpleUID has been renamed to Strig. It's advised to use the new package instead of this one. pip install strig")
 
 digits = _string.digits ## 0123456789
 
