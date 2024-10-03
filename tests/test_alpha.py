@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.getcwd())
 
-from src.simpleUID import alpha
+from src.strig import alpha
 from utils import has_upper, has_lower
 import os
 
