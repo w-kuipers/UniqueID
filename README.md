@@ -1,9 +1,9 @@
 # Strig
 
-[![GitHub releases](https://img.shields.io/github/v/release/w-kuipers/simpleUID)](https://github.com/w-kuipers/strig/releases)
-[![PyPI release](https://img.shields.io/pypi/v/simpleUID.svg)](https://pypi.org/project/strig/)
+[![GitHub releases](https://img.shields.io/github/v/release/w-kuipers/strig)](https://github.com/w-kuipers/strig/releases)
+[![PyPI release](https://img.shields.io/pypi/v/strig.svg)](https://pypi.org/project/strig/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![](https://img.shields.io/github/last-commit/w-kuipers/simpleUID?label=last%20modified)](https://github.com/w-kuipers/strig)
+[![](https://img.shields.io/github/last-commit/w-kuipers/strig?label=last%20modified)](https://github.com/w-kuipers/strig)
 
 
 A utility package for Python to generate random strings and numbers.
@@ -37,9 +37,9 @@ Note that `pip` refers to the Python 3 package manager. In an environment where 
 
 ## Usage
 
-For a more detailed explaination, visit the [documentation](https://github.com/w-kuipers/simpleUID/wiki).
+For a more detailed explaination, visit the [documentation](https://github.com/w-kuipers/strig/wiki).
 
-Import simpleUID:
+Import strig:
 
     import strig
 
@@ -52,7 +52,7 @@ You can specify the string length and a prefix:
     strig.alpha(length=20, prefix='start')
 
 #### Cursor
-Currently only SQL cursor objects are supported. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/simpleUID/issues) on GitHub. 
+Currently only SQL cursor objects are supported. If you encounter issues with other cursor objects, please [create an issue](https://github.com/w-kuipers/strig/issues) on GitHub. 
 The cursor argument should be a dictionairy structured like the example below:
 
     #### SQL example
