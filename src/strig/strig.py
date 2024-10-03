@@ -4,8 +4,6 @@ import string as _string
 from datetime import datetime
 from typing import Optional
 
-from .include import length_check
-
 digits = _string.digits ## 0123456789
 
 
@@ -16,8 +14,6 @@ def integer(length: int = 6, prefix: Optional[int] = None, ignore_max_length: bo
     * length: Length in characters to return
     * prefix: Integer value to prefix the return value with
     """
-
-    length_check(length, ignore_max_length)
 
     if not isinstance(prefix, int):
         if not prefix == None:
@@ -62,7 +58,6 @@ def string(
     * prefix: String value to prefix the return value with
     """
 
-    length_check(length, ignore_max_length)
 
     if not isinstance(prefix, str):
         if not prefix == None:
@@ -104,7 +99,6 @@ def password(length: int = 10, ignore_max_length: bool = False, symbols=True):
     * symbols: If symbols should be included
     """
 
-    length_check(length, ignore_max_length)
 
     alphabet = _string.ascii_letters + digits
     if symbols:
@@ -128,7 +122,6 @@ def bytes(length: int = 32, ignore_max_length: bool = False):
     
     * length: Length in bytes to return
     """
-    length_check(length, ignore_max_length)
 
     return secrets.token_bytes(length)
 
@@ -140,13 +133,11 @@ def hex(length: int = 32, ignore_max_length: bool = False):
     
     * length: Length in bytes to return
     """
-    length_check(length, ignore_max_length)
 
     return secrets.token_hex(length)
 
 
 def urlsafe(*args, length: int = 32, ignore_max_length: bool = False):
-    length_check(length, ignore_max_length)
 
     generated = secrets.token_urlsafe(length)
 
