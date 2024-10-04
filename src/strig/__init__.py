@@ -1,3 +1,3 @@
-from .methods.alpha import alpha
-from .methods.alphanumeric import alphanumeric
-from .methods.numeric import numeric
+from .functions.alpha import alpha
+from .functions.alphanumeric import alphanumeric
+from .functions.numeric import numeric
