@@ -1,8 +1,9 @@
 from typing import Optional, List, Literal, TypedDict
-from datetime import datetime, Typ
+from datetime import datetime
+import inspect
 
 class Methods:
-    today: Optional[datetime]
+    today: Optional[datetime] = None
 
     def __get_today__(self):
         self.today = datetime.today()
@@ -12,23 +13,48 @@ class Methods:
             self.__get_today__()
         
         return self.today.year
-        
-# def parse_varstring(varstring: str) -> List[Methods]:
-#     for i, var in enumerate(varstring.split("%")):
-#         if i == 0: continue ## Varstring starts with %
-#          
-#
-#     return []
+
+    def yy(self):
+        if self.today == None:
+            self.__get_today__()
+
+        return str(self.today.year)[-2:]
+
+    def mm(self):
+        if self.today == None:
+            self.__get_today__()
+
+        month = str(self.today.month)
+        if len(month) == 2: 
+            return month
+
+        return "0" + month
+
+    def dd(self):
+        if self.today == None:
+            self.__get_today__()
+
+        day = str(self.today.day)
+        if len(day) == 2: 
+            return day
+
+        return "0" + day
 
 def var(varstring: str, prefix: Optional[str] = None):
     """
     Generate a string from specified variables
     """
 
-    vars: List[Methods] = []
+    generated = ""
+
+    method_names = [i[0] for i in inspect.getmembers(Methods, predicate=inspect.isfunction)]
+    methods = Methods()
+
     for i, var in enumerate(varstring.split("%")):
         if i == 0: continue ## Varstring starts with %
+        if not var in method_names:
+            raise TypeError(f"Unrecognized variable '{var}'")
 
-    vars["yyyy"]
+        generated += getattr(methods, var)()
 
-    return
+    return generated
