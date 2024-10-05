@@ -1,4 +1,4 @@
-from typing import Optional, List, Literal, TypedDict
+from typing import Optional, Callable
 from datetime import datetime
 import inspect
 
@@ -40,15 +40,15 @@ class Methods:
 
         return "0" + day
 
-def var(varstring: str, prefix: Optional[str] = None):
+def var(varstring: str, prefix: Optional[str] = None, methods: Callable = Methods):
     """
     Generate a string from specified variables
     """
 
     generated = ""
 
-    method_names = [i[0] for i in inspect.getmembers(Methods, predicate=inspect.isfunction)]
-    methods = Methods()
+    method_names = [i[0] for i in inspect.getmembers(methods, predicate=inspect.isfunction)]
+    methods = methods()
 
     for i, var in enumerate(varstring.split("%")):
         if i == 0: continue ## Varstring starts with %
@@ -57,4 +57,7 @@ def var(varstring: str, prefix: Optional[str] = None):
 
         generated += getattr(methods, var)()
 
+    if not prefix == None:
+        generated = prefix + generated
+    
     return generated
