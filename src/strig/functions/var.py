@@ -1,9 +1,11 @@
-from typing import Optional, Callable
 import inspect
+from typing import Callable, Optional
+
 from src.strig.functions.var_methods.dates import DateMethods
 from src.strig.functions.var_methods.os import OsMethods
 
-Methods = type('Methods', (DateMethods, OsMethods), dict(methods='methods'))
+Methods = type("Methods", (DateMethods, OsMethods), dict(methods="methods"))
+
 
 def var(varstring: str, prefix: Optional[str] = None, methods: Callable = Methods):
     """
@@ -12,17 +14,20 @@ def var(varstring: str, prefix: Optional[str] = None, methods: Callable = Method
 
     generated = ""
 
-    method_names = [i[0] for i in inspect.getmembers(methods, predicate=inspect.isfunction)]
+    method_names = [
+        i[0] for i in inspect.getmembers(methods, predicate=inspect.isfunction)
+    ]
     methods = methods()
 
     for i, var in enumerate(varstring.split("%")):
-        if i == 0: continue ## Varstring starts with %
+        if i == 0:
+            continue  ## Varstring starts with %
         if not var in method_names:
             raise TypeError(f"Unrecognized variable '{var}'")
 
-        generated += getattr(methods, var)()
+        generated += str(getattr(methods, var)())
 
     if not prefix == None:
         generated = prefix + generated
-    
+
     return generated
