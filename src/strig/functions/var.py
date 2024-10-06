@@ -2,9 +2,9 @@ import inspect
 from typing import Callable, Optional
 
 from src.strig.functions.var_methods.dates import DateMethods
-from src.strig.functions.var_methods.os import OsMethods
+from src.strig.functions.var_methods.system import SystemMethods
 
-Methods = type("Methods", (DateMethods, OsMethods), dict(methods="methods"))
+Methods = type("Methods", (DateMethods, SystemMethods), dict(methods="methods"))
 
 
 def var(varstring: str, prefix: Optional[str] = None, methods: Callable = Methods):
