@@ -4,7 +4,7 @@ import platform
 import socket
 
 
-class OsMethods:
+class SystemMethods:
     def system(self):
         return platform.system()
 
@@ -45,7 +45,3 @@ class OsMethods:
     def os_name(self):
         """Returns the name of the operating system."""
         return os.name  # This returns 'posix', 'nt', etc., depending on the platform.
-
-    def python_version(self):
-        """Returns the version of Python being used."""
-        return platform.python_version()
