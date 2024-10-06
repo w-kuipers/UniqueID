@@ -1,8 +1,8 @@
 import inspect
 from typing import Callable, Optional
 
-from src.strig.functions.var_methods.dates import DateMethods
-from src.strig.functions.var_methods.system import SystemMethods
+from ..functions.var_methods.dates import DateMethods
+from ..functions.var_methods.system import SystemMethods
 
 Methods = type("Methods", (DateMethods, SystemMethods), dict(methods="methods"))
 
