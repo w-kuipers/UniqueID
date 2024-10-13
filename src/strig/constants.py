@@ -8,3 +8,4 @@ ALPHANUMERIC_LOWER = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 NUMERIC = "0123456789"
 SYMBOLS = "!@%^*_-."
+URLSAFE = "-_.~"
