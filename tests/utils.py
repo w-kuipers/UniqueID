@@ -1,4 +1,4 @@
-from src.strig.constants import SYMBOLS
+from src.strig.constants import SYMBOLS, URLSAFE
 
 
 def has_upper(string: str):
@@ -36,6 +36,17 @@ def has_symbol(string: str):
     for char in string:
         if char in SYMBOLS:
             print(SYMBOLS, char)
+            result = True
+            break
+
+    return result
+
+
+def has_urlsafe(string: str):
+    result = False
+    for char in string:
+        if char in URLSAFE:
+            print(URLSAFE, char)
             result = True
             break
 
