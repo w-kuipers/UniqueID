@@ -2,7 +2,7 @@ name: Release to PyPi
 
 on:
   push:
-    tags: v1.1.*
+    tags: v2.0.*
 
 jobs:
   build-py:
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: release
-      url: https://pypi.org/p/simpleUID
+      url: https://pypi.org/p/strig
     permissions:
       id-token: write
     steps:

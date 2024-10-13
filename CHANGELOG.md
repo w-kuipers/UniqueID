@@ -5,10 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased]
+## [2.0.0]
+
+### Added
+
+- `alphanumeric` and `alpha` functions. These replace `v1` function `string`.
+- `numeric` function. This replaces `v1` function `integer`.
+
+### Removed
+
+- **BREAKING**: `string`, `integer`, `hex`, `bytes` and `database` functions.
+- `ignore_max_length` option in the `string` and `integer` functions, the `length` option can now be as big as desired.
 
 ### Changed
 
+- **BREAKING**: Updated the package name from `simpleUID` to `strig`
+- **BREAKING**: `integer` function renamed `numeric`.
 - Improve parameter types
 - Add documentation to functions
 
@@ -16,19 +28,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Change set of symbols included in method "password".
+- Change set of symbols included in function "password".
 
 ## [1.1.1]
 
 ### Changed
 
-- "password" method now adds symbols by default. This can be disabled by setting the "symbols" parameter to False.
+- "password" function now adds symbols by default. This can be disabled by setting the "symbols" parameter to False.
 
 ## [1.1.0] - 2023-11-28
 
 ### Added
 
-- `MongoDB` support for `database` method.
+- `MongoDB` support for `database` function.
 
 ## [1.0.0]
 
@@ -40,24 +52,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- "var" methods were not behaving the way they should.
+- "var" functions were not behaving the way they should.
 
 ### Added
 
-- Short versions of date variables to "var" method.
+- Short versions of date variables to "var" function.
 
 ## [1.0.0-alpha.2]
 
 ### Changed
 
-- "var" method in database will now add up until it's unique.
+- "var" function in database will now add up until it's unique.
 
 ## [1.0.0-alpha]
 
 ### Added
 
 - "var" function to generate a string based on a variable string that is passed as an argument.
-- "var" method to "database" function.
+- "var" function to "database" function.
 
 ### Changed
 
@@ -116,15 +128,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added information for "database" function.
 
-[unreleased]: https://github.com/w-kuipers/simpleUID/compare/v1.1.2...HEAD
-[1.1.2]: https://github.com/w-kuipers/simpleUID/compare/v1.1.1...v1.1.2
-[1.1.1]: https://github.com/w-kuipers/simpleUID/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/w-kuipers/simpleUID/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0
-[1.0.0-alpha.3]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.3
-[1.0.0-alpha.2]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha.2
-[1.0.0-alpha]: https://github.com/w-kuipers/simpleUID/compare/v0.1.6...v1.0.0-alpha
-[0.1.6]: https://github.com/w-kuipers/simpleUID/compare/v0.1.5...v0.1.6
-[0.1.5]: https://github.com/w-kuipers/simpleUID/compare/v0.1.4...v0.1.5
-[0.1.4]: https://github.com/w-kuipers/simpleUID/compare/v0.1.3...v0.1.4
-[0.0.1]: https://github.com/w-kuipers/simpleUID/releases/tag/v0.0.1
+[2.0.0]: https://github.com/w-kuipers/strig/compare/v1.1.3...v2.0.0
+[1.1.3]: https://github.com/w-kuipers/strig/compare/v1.1.2...v1.1.3
+[1.1.2]: https://github.com/w-kuipers/strig/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/w-kuipers/strig/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/w-kuipers/strig/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0
+[1.0.0-alpha.3]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0-alpha.3
+[1.0.0-alpha.2]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0-alpha.2
+[1.0.0-alpha]: https://github.com/w-kuipers/strig/compare/v0.1.6...v1.0.0-alpha
+[0.1.6]: https://github.com/w-kuipers/strig/compare/v0.1.5...v0.1.6
+[0.1.5]: https://github.com/w-kuipers/strig/compare/v0.1.4...v0.1.5
+[0.1.4]: https://github.com/w-kuipers/strig/compare/v0.1.3...v0.1.4
+[0.0.1]: https://github.com/w-kuipers/strig/releases/tag/v0.0.1
