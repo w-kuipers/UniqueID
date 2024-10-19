@@ -12,7 +12,6 @@ Strig is a Python utility package for generating random strings and numbers. It 
 
 - Generate random **alphanumeric**, **alphabetic**, or **numeric** strings.
 - Customize length, prefixes, and casing options.
-- Verify uniqueness against a database.
 
 ## Installation
 
