@@ -6,7 +6,7 @@
 [![](https://img.shields.io/github/last-commit/w-kuipers/strig?label=last%20modified)](https://github.com/w-kuipers/strig)
 [![Tests](https://github.com/w-kuipers/strig/actions/workflows/tests.yml/badge.svg)](https://github.com/w-kuipers/strig/actions/workflows/tests.yml)
 
-Strig is an open-source Python utility package for generating random strings and numbers. It is lightweight, flexible, and perfect for use in application backends where unique IDs, secure passwords, or bulk test data are needed.
+Strig is a Python utility package for generating random strings and numbers. It is lightweight, flexible, and perfect for use in application backends where unique IDs, secure passwords, or bulk test data are needed.
 
 ## Features
 
